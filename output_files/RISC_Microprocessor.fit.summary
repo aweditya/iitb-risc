@@ -1,0 +1,11 @@
+Fitter Status : Successful - Thu Apr 14 10:37:20 2022
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : RISC_Microprocessor
+Top-level Entity Name : DUT
+Family : MAX V
+Device : 5M1270ZT144C5
+Timing Models : Final
+Total logic elements : 109 / 1,270 ( 9 % )
+Total pins : 52 / 114 ( 46 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

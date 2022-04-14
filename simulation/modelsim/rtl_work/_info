@@ -1,0 +1,136 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/simulation/modelsim
+Ealu_16
+Z1 w1649912512
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 1
+R0
+Z5 8D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl
+Z6 FD:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl
+l0
+L5 1
+VTj9VVnSh8LShnMgAASgO?2
+!s100 fc;HR:gz6Ghc?;T6^[0Th1
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1649913110
+!i10b 1
+Z9 !s108 1649913110.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl|
+Z11 !s107 D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioural
+R2
+R3
+R4
+DEx4 work 6 alu_16 0 22 Tj9VVnSh8LShnMgAASgO?2
+!i122 1
+l73
+L19 84
+VQcJ3[SZ=VNk4SQ=4J^nZ[3
+!s100 L?O=8_F5[M7LVM`lW1d5H2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Edut
+Z14 w1649912191
+R3
+R4
+!i122 0
+R0
+Z15 8D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl
+Z16 FD:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl
+l0
+L8 1
+V97LPP7:hCXUfc8:n36?HO0
+!s100 >ZzP6XX0Pc>[GX2S]Zm:H0
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl|
+Z18 !s107 D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl|
+!i113 1
+R12
+R13
+Adutwrap
+R3
+R4
+DEx4 work 3 dut 0 22 97LPP7:hCXUfc8:n36?HO0
+!i122 0
+l29
+L13 35
+V`>KWmicgLZh>YGaZBKZX:3
+!s100 9<170@9d8A^6:l<^1R:EA0
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Etestbench
+Z19 w1649586735
+R4
+R3
+!i122 2
+R0
+Z20 8D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Testbench.vhdl
+Z21 FD:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Testbench.vhdl
+l0
+L7 1
+V]iKK_Z9L:G9B:i8c]3eFH0
+!s100 bWf8kl8zb90X@P1m>V^K20
+R7
+31
+R8
+!i10b 1
+R9
+Z22 !s90 -reportprogress|300|-93|-work|work|D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Testbench.vhdl|
+!s107 D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Testbench.vhdl|
+!i113 1
+R12
+R13
+Abehave
+R4
+R3
+DEx4 work 9 testbench 0 22 ]iKK_Z9L:G9B:i8c]3eFH0
+!i122 2
+l69
+L9 132
+V[:X:WGMY7U852;T?aaioS3
+!s100 ]`LDL[[ORa<UU3RK4Zigj2
+R7
+31
+R8
+!i10b 1
+R9
+R22
+Z23 !s107 D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Testbench.vhdl|
+!i113 1
+R12
+R13

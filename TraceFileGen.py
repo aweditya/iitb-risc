@@ -15,9 +15,9 @@ def xor(str1, str2) :
     ans = ''
     for i in range(len(str1)) :
         if str1[i]==str2[i] :
-            ans += '1'
-        else :
             ans += '0'
+        else :
+            ans += '1'
     return ans
 #--------------------------------------------------
 
@@ -40,7 +40,8 @@ for i in range(20) : # ADD : modifies both flags
         op = op[1:]
     if op==''.join(['0']*16) :
         zero = '1'
-    ans += ab + ' ' + sel + ' '+ op + ' '+ carry + ' ' + zero + ' '+ ''.join(['1']*34)
+    #ans += ab + ' ' + sel + ' '+ op + ' '+ carry + ' ' + zero + ' '+ ''.join(['1']*34)
+    ans += ab + sel + ' '+ op + carry + zero + ' '+ ''.join(['1']*18)
     answer += ans + '\n'
     ans = ''
 for i in range(20) : # NAND : modifies zero flag
@@ -51,7 +52,7 @@ for i in range(20) : # NAND : modifies zero flag
     op = nand(ab[:16], ab[16:])
     if op==''.join(['0']*16) :
         zero = '1'
-    ans += ab + ' ' + sel + ' '+ op + ' '+ carry + ' ' + zero + ' '+ ''.join(['1']*34)
+    ans += ab + sel + ' '+ op + carry + zero + ' '+ ''.join(['1']*18)
     answer += ans + '\n'
     ans = ''
 for i in range(20) : # XOR : modifies zero flag
@@ -62,7 +63,8 @@ for i in range(20) : # XOR : modifies zero flag
     op = xor(ab[:16], ab[16:])
     if op==''.join(['0']*16) :
         zero = '1'
-    ans += ab + ' ' + sel + ' '+ op + ' '+ carry + ' ' + zero + ' '+ ''.join(['1']*34)
+    #ans += ab + ' ' + sel + ' '+ op + ' '+ carry + ' ' + zero + ' '+ ''.join(['1']*34)
+    ans += ab + sel + ' '+ op + carry + zero + ' '+ ''.join(['1']*18)
     answer += ans + '\n'
     ans = ''
 for i in range(20) : # NONE : modifies no flag
@@ -71,13 +73,14 @@ for i in range(20) : # NONE : modifies no flag
     ab = ''.join(random.choices(['0','1'], k=32))
     sel = '11'
     op = ab[:16]
-    ans += ab + ' ' + sel + ' '+ op + ' '+ carry + ' ' + zero + ' '+ ''.join(['1']*34)
+    ans += ab + sel + ' '+ op + carry + zero + ' '+ ''.join(['1']*18)
+    #ans += ab + ' ' + sel + ' '+ op + ' '+ carry + ' ' + zero + ' '+ ''.join(['1']*34)
     answer += ans + '\n'
     ans = ''
 
 # when a case doesnt modify a flag, it invariably output zero for that bit. This needs to be handled seperately.
-
-
+with open('TRACEFILE.txt','w') as file1:
+    file1.write(answer)
 # In[ ]:
 
 
