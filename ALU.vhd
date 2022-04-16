@@ -8,11 +8,11 @@ entity alu_16 is
         control_bits : integer:=2
         );
 	port (
-        A: in std_logic_vector(operand_width-1 downto 0);
-        B: in std_logic_vector(operand_width-1 downto 0);
-        control_in: in std_logic_vector(control_bits-1 downto 0);
-        C: out std_logic_vector(operand_width-1 downto 0);
-	control_out: out std_logic_vector(control_bits-1 downto 0)
+        A: in std_logic_vector(0 to operand_width-1);
+        B: in std_logic_vector(0 to operand_width-1);
+        control_in: in std_logic_vector(0 to control_bits-1);
+        C: out std_logic_vector(0 to operand_width-1);
+	control_out: out std_logic_vector(0 to control_bits-1)
     ) ;
 end entity alu_16;
 

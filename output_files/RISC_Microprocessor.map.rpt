@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISC_Microprocessor
-Thu Apr 14 10:37:18 2022
+Sat Apr 16 20:58:42 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,10 +13,14 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: alu_16:add_instance
- 11. Analysis & Synthesis Messages
+  8. State Machine - |DUT|Datapath:add_instance|present_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: Datapath:add_instance|alu_16:ALU
+ 12. Port Connectivity Checks: "Datapath:add_instance|register2bit:CC"
+ 13. Port Connectivity Checks: "Datapath:add_instance|register2byte:IR"
+ 14. Port Connectivity Checks: "Datapath:add_instance|alu_16:ALU"
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -43,13 +47,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Thu Apr 14 10:37:18 2022       ;
+; Analysis & Synthesis Status ; Successful - Sat Apr 16 20:58:42 2022       ;
 ; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name               ; RISC_Microprocessor                         ;
 ; Top-level Entity Name       ; DUT                                         ;
 ; Family                      ; MAX V                                       ;
-; Total logic elements        ; 109                                         ;
-; Total pins                  ; 52                                          ;
+; Total logic elements        ; 0                                           ;
+; Total pins                  ; 3                                           ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
 +-----------------------------+---------------------------------------------+
@@ -142,59 +146,89 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                   ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
-; DUT.vhdl                         ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl ;         ;
-; alu.vhdl                         ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                       ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+---------+
+; Demultiplexer1to8.vhd            ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd ;         ;
+; Register2bit.vhd                 ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Register2bit.vhd      ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd               ;         ;
+; RegisterBank.vhd                 ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/RegisterBank.vhd      ;         ;
+; Register2Byte.vhd                ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Register2Byte.vhd     ;         ;
+; DUT.vhdl                         ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl              ;         ;
+; Datapath.vhd                     ; yes             ; User VHDL File  ; D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd          ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                   ;
-+---------------------------------------------+-----------------+
-; Resource                                    ; Usage           ;
-+---------------------------------------------+-----------------+
-; Total logic elements                        ; 109             ;
-;     -- Combinational with no register       ; 109             ;
-;     -- Register only                        ; 0               ;
-;     -- Combinational with a register        ; 0               ;
-;                                             ;                 ;
-; Logic element usage by number of LUT inputs ;                 ;
-;     -- 4 input functions                    ; 70              ;
-;     -- 3 input functions                    ; 22              ;
-;     -- 2 input functions                    ; 17              ;
-;     -- 1 input functions                    ; 0               ;
-;     -- 0 input functions                    ; 0               ;
-;                                             ;                 ;
-; Logic elements by mode                      ;                 ;
-;     -- normal mode                          ; 109             ;
-;     -- arithmetic mode                      ; 0               ;
-;     -- qfbk mode                            ; 0               ;
-;     -- register cascade mode                ; 0               ;
-;     -- synchronous clear/load mode          ; 0               ;
-;     -- asynchronous clear/load mode         ; 0               ;
-;                                             ;                 ;
-; Total registers                             ; 0               ;
-; I/O pins                                    ; 52              ;
-; Maximum fan-out node                        ; input_vector[0] ;
-; Maximum fan-out                             ; 27              ;
-; Total fan-out                               ; 398             ;
-; Average fan-out                             ; 2.47            ;
-+---------------------------------------------+-----------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 0     ;
+;     -- Combinational with no register       ; 0     ;
+;     -- Register only                        ; 0     ;
+;     -- Combinational with a register        ; 0     ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- 2 input functions                    ; 0     ;
+;     -- 1 input functions                    ; 0     ;
+;     -- 0 input functions                    ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 0     ;
+;     -- asynchronous clear/load mode         ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+; I/O pins                                    ; 3     ;
++---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name      ; Entity Name ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------+-------------+--------------+
-; |DUT                       ; 109 (0)     ; 0            ; 0          ; 52   ; 0            ; 109 (0)      ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |DUT                     ; DUT         ; work         ;
-;    |alu_16:add_instance|   ; 109 (109)   ; 0            ; 0          ; 0    ; 0            ; 109 (109)    ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |DUT|alu_16:add_instance ; alu_16      ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+--------------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
+; |DUT                       ; 0 (0)       ; 0            ; 0          ; 3    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |DUT                ; DUT         ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DUT|Datapath:add_instance|present_state                                                                           ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; Name             ; present_state.s5 ; present_state.s4 ; present_state.s3 ; present_state.s2 ; present_state.s1 ; present_state.s0 ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; present_state.s0 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ;
+; present_state.s1 ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                ;
+; present_state.s2 ; 0                ; 0                ; 0                ; 1                ; 0                ; 1                ;
+; present_state.s3 ; 0                ; 0                ; 1                ; 0                ; 0                ; 1                ;
+; present_state.s4 ; 0                ; 1                ; 0                ; 0                ; 0                ; 1                ;
+; present_state.s5 ; 1                ; 0                ; 0                ; 0                ; 0                ; 1                ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+
+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; Datapath:add_instance|present_state.s0 ; Lost fanout        ;
+; Datapath:add_instance|present_state.s1 ; Lost fanout        ;
+; Datapath:add_instance|present_state.s2 ; Lost fanout        ;
+; Datapath:add_instance|present_state.s3 ; Lost fanout        ;
+; Datapath:add_instance|present_state.s4 ; Lost fanout        ;
+; Datapath:add_instance|present_state.s5 ; Lost fanout        ;
+; Total Number of Removed Registers = 6  ;                    ;
++----------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -212,24 +246,44 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |DUT|alu_16:add_instance|control_out[0] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-
-
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: alu_16:add_instance ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; operand_width  ; 16    ; Signed Integer                          ;
-; control_bits   ; 2     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Datapath:add_instance|alu_16:ALU ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; operand_width  ; 16    ; Signed Integer                                       ;
+; control_bits   ; 2     ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Datapath:add_instance|register2bit:CC"                                                ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; output ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Datapath:add_instance|register2byte:IR"                                                       ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; load           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; output[0..3]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; output[13..15] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------+
+; Port Connectivity Checks: "Datapath:add_instance|alu_16:ALU" ;
++------------+-------+----------+------------------------------+
+; Port       ; Type  ; Severity ; Details                      ;
++------------+-------+----------+------------------------------+
+; control_in ; Input ; Info     ; Stuck at GND                 ;
++------------+-------+----------+------------------------------+
 
 
 +-------------------------------+
@@ -238,67 +292,244 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu Apr 14 10:37:08 2022
+    Info: Processing started: Sat Apr 16 20:58:32 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC_Microprocessor -c RISC_Microprocessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file demultiplexer1to8.vhd
+    Info (12022): Found design unit 1: Demultiplexer1to8-selection File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 11
+    Info (12023): Found entity 1: Demultiplexer1to8 File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file register2bit.vhd
+    Info (12022): Found design unit 1: register2bit-behaviour File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Register2bit.vhd Line: 12
+    Info (12023): Found entity 1: register2bit File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Register2bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: alu_16-behavioural File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 19
+    Info (12023): Found entity 1: alu_16 File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file zeroappender.vhd
+    Info (12022): Found design unit 1: ZeroAppender-append File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ZeroAppender.vhd Line: 10
+    Info (12023): Found entity 1: ZeroAppender File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ZeroAppender.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file signextender9.vhd
+    Info (12022): Found design unit 1: sign_extender_9bit-extend File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/SignExtender9.vhd Line: 10
+    Info (12023): Found entity 1: sign_extender_9bit File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/SignExtender9.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file signextender6.vhd
+    Info (12022): Found design unit 1: sign_extender_6bit-extend File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/SignExtender6.vhd Line: 10
+    Info (12023): Found entity 1: sign_extender_6bit File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/SignExtender6.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file registerbank.vhd
+    Info (12022): Found design unit 1: register_bank-behaviour File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/RegisterBank.vhd Line: 16
+    Info (12023): Found entity 1: register_bank File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/RegisterBank.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file register2byte.vhd
+    Info (12022): Found design unit 1: register2byte-behaviour File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Register2Byte.vhd Line: 12
+    Info (12023): Found entity 1: register2byte File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Register2Byte.vhd Line: 4
+Warning (12019): Can't analyze file -- file Register1Byte.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
+    Info (12022): Found design unit 1: RAM-behaviour File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/RAM.vhd Line: 13
+    Info (12023): Found entity 1: RAM File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/RAM.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file testbench.vhdl
     Info (12022): Found design unit 1: Testbench-Behave File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Testbench.vhdl Line: 9
     Info (12023): Found entity 1: Testbench File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Testbench.vhdl Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file dut.vhdl
     Info (12022): Found design unit 1: DUT-DutWrap File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl Line: 13
     Info (12023): Found entity 1: DUT File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl Line: 8
-Info (12021): Found 2 design units, including 1 entities, in source file alu.vhdl
-    Info (12022): Found design unit 1: alu_16-behavioural File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 19
-    Info (12023): Found entity 1: alu_16 File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file datapath.vhd
+    Info (12022): Found design unit 1: Datapath-behavioural File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 13
+    Info (12023): Found entity 1: Datapath File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 6
 Info (12127): Elaborating entity "DUT" for the top level hierarchy
-Info (12128): Elaborating entity "alu_16" for hierarchy "alu_16:add_instance" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl Line: 33
-Warning (10631): VHDL Process Statement warning at alu.vhdl(74): inferring latch(es) for signal or variable "C", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (10631): VHDL Process Statement warning at alu.vhdl(74): inferring latch(es) for signal or variable "control_out", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "control_out[0]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "control_out[1]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[0]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[1]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[2]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[3]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[4]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[5]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[6]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[7]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[8]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[9]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[10]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[11]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[12]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[13]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[14]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (10041): Inferred latch for "C[15]" at alu.vhdl(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[12]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[11]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[10]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[9]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[8]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[7]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[6]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[5]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[4]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[3]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[2]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[1]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[0]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|control_out[1]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|control_out[0]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[14]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[13]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Warning (14026): LATCH primitive "alu_16:add_instance|C[15]" is permanently enabled File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/alu.vhdl Line: 74
-Info (21057): Implemented 161 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 34 input pins
-    Info (21059): Implemented 18 output pins
-    Info (21061): Implemented 109 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+Info (12128): Elaborating entity "Datapath" for hierarchy "Datapath:add_instance" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl Line: 26
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhd(72): object "CC_out" assigned a value but never read File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 72
+Warning (10541): VHDL Signal Declaration warning at Datapath.vhd(88): used implicit default value for signal "IR_in" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 88
+Warning (10036): Verilog HDL or VHDL warning at Datapath.vhd(91): object "wr_enable" assigned a value but never read File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 91
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(135): signal "T1_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 135
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(137): signal "ALU_C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 137
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(151): signal "T3_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(166): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 166
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(167): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 167
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(168): signal "RF_D1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 168
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(169): signal "RF_D2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 169
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(183): signal "T1_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 183
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(184): signal "T2_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(186): signal "flags" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 186
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(187): signal "ALU_C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 187
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(201): signal "T3_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 201
+Warning (10492): VHDL Process Statement warning at Datapath.vhd(202): signal "IR_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 202
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "RF_A1", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "RF_load", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "CC_load", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "T1_load", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "T2_load", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "T3_load", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "IR_load", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "ALU_A", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "ALU_B", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "T3_in", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "RF_D3", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "RF_A3", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "RF_A2", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "T1_in", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "T2_in", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "alu_select", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Warning (10631): VHDL Process Statement warning at Datapath.vhd(113): inferring latch(es) for signal or variable "CC_in", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "CC_in[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "CC_in[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "alu_select[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "alu_select[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[15]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[14]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[13]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[12]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[11]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[10]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[9]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[8]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[7]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[6]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[5]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[4]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[3]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_in[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[15]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[14]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[13]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[12]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[11]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[10]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[9]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[8]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[7]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[6]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[5]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[4]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[3]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_in[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A2[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A2[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A2[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A3[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A3[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A3[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[15]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[14]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[13]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[12]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[11]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[10]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[9]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[8]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[7]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[6]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[5]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[4]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[3]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_D3[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[15]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[14]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[13]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[12]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[11]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[10]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[9]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[8]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[7]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[6]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[5]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[4]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[3]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_in[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[15]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[14]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[13]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[12]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[11]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[10]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[9]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[8]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[7]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[6]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[5]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[4]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[3]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_B[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[15]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[14]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[13]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[12]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[11]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[10]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[9]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[8]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[7]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[6]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[5]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[4]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[3]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "ALU_A[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "IR_load" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T3_load" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T2_load" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "T1_load" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "CC_load" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_load" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A1[2]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A1[1]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (10041): Inferred latch for "RF_A1[0]" at Datapath.vhd(113) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 113
+Info (12128): Elaborating entity "alu_16" for hierarchy "Datapath:add_instance|alu_16:ALU" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 222
+Warning (10631): VHDL Process Statement warning at ALU.vhd(74): inferring latch(es) for signal or variable "C", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Warning (10631): VHDL Process Statement warning at ALU.vhd(74): inferring latch(es) for signal or variable "control_out", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "control_out[1]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "control_out[0]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[15]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[14]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[13]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[12]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[11]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[10]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[9]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[8]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[7]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[6]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[5]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[4]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[3]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[2]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[1]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (10041): Inferred latch for "C[0]" at ALU.vhd(74) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/ALU.vhd Line: 74
+Info (12128): Elaborating entity "register2byte" for hierarchy "Datapath:add_instance|register2byte:T1" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 225
+Info (12128): Elaborating entity "register_bank" for hierarchy "Datapath:add_instance|register_bank:RF" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 237
+Info (12128): Elaborating entity "Demultiplexer1to8" for hierarchy "Datapath:add_instance|register_bank:RF|Demultiplexer1to8:demultiplexer" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/RegisterBank.vhd Line: 48
+Warning (10631): VHDL Process Statement warning at Demultiplexer1to8.vhd(13): inferring latch(es) for signal or variable "selection_output", which holds its previous value in one or more paths through the process File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (10041): Inferred latch for "selection_output[7]" at Demultiplexer1to8.vhd(13) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (10041): Inferred latch for "selection_output[6]" at Demultiplexer1to8.vhd(13) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (10041): Inferred latch for "selection_output[5]" at Demultiplexer1to8.vhd(13) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (10041): Inferred latch for "selection_output[4]" at Demultiplexer1to8.vhd(13) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (10041): Inferred latch for "selection_output[3]" at Demultiplexer1to8.vhd(13) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (10041): Inferred latch for "selection_output[2]" at Demultiplexer1to8.vhd(13) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (10041): Inferred latch for "selection_output[1]" at Demultiplexer1to8.vhd(13) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (10041): Inferred latch for "selection_output[0]" at Demultiplexer1to8.vhd(13) File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Demultiplexer1to8.vhd Line: 13
+Info (12128): Elaborating entity "register2bit" for hierarchy "Datapath:add_instance|register2bit:CC" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/Datapath.vhd Line: 240
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "output_vector[0]" is stuck at VCC File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl Line: 10
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "input_vector[0]" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl Line: 9
+    Warning (15610): No output dependent on input pin "input_vector[1]" File: D:/PranavaStudy/IITB/sem4/EE309-Microprocessors/Project-IITB-RISC/RISC-Microprocessor/DUT.vhdl Line: 9
+Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 1 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
     Info: Peak virtual memory: 4759 megabytes
-    Info: Processing ended: Thu Apr 14 10:37:18 2022
+    Info: Processing ended: Sat Apr 16 20:58:42 2022
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Total CPU time (on all processors): 00:00:25
 
 
