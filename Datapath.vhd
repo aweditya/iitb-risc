@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 entity Datapath is port(
     clock: in std_logic;
     reset: in std_logic;
-    dummyout: out std_logic
+    dummyout: out std_logic_vector(0 to 15)
 );
 end entity Datapath;
 
@@ -100,7 +100,7 @@ architecture behavioural of Datapath is
 	 type state is (s0, s1, s2, s3, s4, s5);
     signal present_state, next_state: state:= s0;
 begin   
-     dummyout <= '1';
+     dummyout <= ALU_C;
     -- State update on positive clock edge
     clock_process: process(clock) 
     begin  
@@ -110,7 +110,7 @@ begin
         
     end process clock_process;
     
-    state_transition_process: process(present_state, reset, clock)
+    state_transition_process: process(present_state)
     begin	 
         if (reset = '1') then
             next_state <= s0;
@@ -119,13 +119,16 @@ begin
                 -- Instruction fetch
                 when s0 => 
                     RF_A1 <= "111";
+						  mem_A <= RF_D1;
+						  T1_in <= RF_D1;
+						  IR_in <= mem_D_out;
 
                     RF_load <= '0';
                     CC_load <= '0';
-                    T1_load <= '0';
+                    T1_load <= '1';
                     T2_load <= '0';
                     T3_load <= '0';
-                    IR_load <= '0';
+                    IR_load <= '1';
                     wr_enable <= '0'; 
 
                     next_state <= s1;

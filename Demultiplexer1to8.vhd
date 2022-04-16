@@ -30,6 +30,8 @@ begin
 					selection_output <= "00000010";
 				when "111" => 
 					selection_output <= "00000001";
+				when others =>
+					selection_output <= "00000000";
 			end case;
 		end if;
 	end process;

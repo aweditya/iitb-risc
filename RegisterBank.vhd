@@ -73,7 +73,8 @@ begin
 						      r4_output when "001",
 							  r5_output when "101",
 							  r6_output when "011",
-							  r7_output when "111";
+							  r7_output when "111",
+							  r0_output when others;
 
 	with address_out_2 select
 		data_out_2 <= r0_output when "000",
@@ -83,6 +84,7 @@ begin
 						      r4_output when "001",
 							  r5_output when "101",
 							  r6_output when "011",
-							  r7_output when "111";
+							  r7_output when "111",
+							  r0_output when others;
 		
 end architecture behaviour;

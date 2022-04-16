@@ -1,7 +1,22 @@
 |DUT
 input_vector[0] => Datapath:add_instance.reset
 input_vector[1] => Datapath:add_instance.clock
-output_vector[0] << Datapath:add_instance.dummyout
+output_vector[0] <= Datapath:add_instance.dummyout[15]
+output_vector[1] <= Datapath:add_instance.dummyout[14]
+output_vector[2] <= Datapath:add_instance.dummyout[13]
+output_vector[3] <= Datapath:add_instance.dummyout[12]
+output_vector[4] <= Datapath:add_instance.dummyout[11]
+output_vector[5] <= Datapath:add_instance.dummyout[10]
+output_vector[6] <= Datapath:add_instance.dummyout[9]
+output_vector[7] <= Datapath:add_instance.dummyout[8]
+output_vector[8] <= Datapath:add_instance.dummyout[7]
+output_vector[9] <= Datapath:add_instance.dummyout[6]
+output_vector[10] <= Datapath:add_instance.dummyout[5]
+output_vector[11] <= Datapath:add_instance.dummyout[4]
+output_vector[12] <= Datapath:add_instance.dummyout[3]
+output_vector[13] <= Datapath:add_instance.dummyout[2]
+output_vector[14] <= Datapath:add_instance.dummyout[1]
+output_vector[15] <= Datapath:add_instance.dummyout[0]
 
 
 |DUT|Datapath:add_instance
@@ -18,19 +33,36 @@ reset => next_state.s2.OUTPUTSELECT
 reset => next_state.s3.OUTPUTSELECT
 reset => next_state.s4.OUTPUTSELECT
 reset => next_state.s5.OUTPUTSELECT
-reset => T2_in[3].IN0
+reset => RF_D3[12].IN1
+reset => RF_A3[0].IN1
+reset => RF_A2[0].IN0
 reset => alu_select[0].IN0
-reset => RF_A3[2].IN1
-reset => RF_D3[15].IN1
 reset => T3_in[15].IN1
 reset => ALU_B[15].IN1
+reset => IR_load.LATCH_ENABLE
 reset => T3_load.LATCH_ENABLE
 reset => T2_load.LATCH_ENABLE
 reset => T1_load.LATCH_ENABLE
 reset => CC_load.LATCH_ENABLE
 reset => RF_load.LATCH_ENABLE
+reset => T1_in[15].IN1
 reset => RF_A1[2].IN1
-dummyout <= <VCC>
+dummyout[15] <= alu_16:ALU.C[15]
+dummyout[14] <= alu_16:ALU.C[14]
+dummyout[13] <= alu_16:ALU.C[13]
+dummyout[12] <= alu_16:ALU.C[12]
+dummyout[11] <= alu_16:ALU.C[11]
+dummyout[10] <= alu_16:ALU.C[10]
+dummyout[9] <= alu_16:ALU.C[9]
+dummyout[8] <= alu_16:ALU.C[8]
+dummyout[7] <= alu_16:ALU.C[7]
+dummyout[6] <= alu_16:ALU.C[6]
+dummyout[5] <= alu_16:ALU.C[5]
+dummyout[4] <= alu_16:ALU.C[4]
+dummyout[3] <= alu_16:ALU.C[3]
+dummyout[2] <= alu_16:ALU.C[2]
+dummyout[1] <= alu_16:ALU.C[1]
+dummyout[0] <= alu_16:ALU.C[0]
 
 
 |DUT|Datapath:add_instance|alu_16:ALU
