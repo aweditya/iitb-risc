@@ -61,6 +61,10 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_TEST_BENCH_NAME Testbench.vhdl -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME dut_instance -section_id Testbench.vhdl
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME Testbench -section_id Testbench.vhdl
+set_global_assignment -name EDA_TEST_BENCH_FILE Testbench.vhdl -section_id Testbench.vhdl
+set_global_assignment -name EDA_TEST_BENCH_FILE TRACEFILE.txt -section_id Testbench.vhdl
+set_global_assignment -name VHDL_FILE one_shift.vhd
+set_global_assignment -name VHDL_FILE 1bitShifter.vhd
 set_global_assignment -name VHDL_FILE Demultiplexer1to8.vhd
 set_global_assignment -name VHDL_FILE Register2bit.vhd
 set_global_assignment -name VHDL_FILE ALU.vhd
@@ -74,5 +78,3 @@ set_global_assignment -name VHDL_FILE RAM.vhd
 set_global_assignment -name VHDL_FILE Testbench.vhdl
 set_global_assignment -name VHDL_FILE DUT.vhdl
 set_global_assignment -name VHDL_FILE Datapath.vhd
-set_global_assignment -name EDA_TEST_BENCH_FILE Testbench.vhdl -section_id Testbench.vhdl
-set_global_assignment -name EDA_TEST_BENCH_FILE TRACEFILE.txt -section_id Testbench.vhdl

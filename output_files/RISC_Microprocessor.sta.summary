@@ -2,28 +2,28 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Setup 'input_vector[0]'
-Slack : -14.459
-TNS   : -214.518
-
 Type  : Setup 'Datapath:add_instance|RF_load'
-Slack : -9.275
-TNS   : -18.383
+Slack : -9.038
+TNS   : -17.423
 
 Type  : Setup 'input_vector[1]'
-Slack : -8.871
-TNS   : -551.006
+Slack : -7.081
+TNS   : -363.763
+
+Type  : Setup 'input_vector[0]'
+Slack : -4.357
+TNS   : -99.515
 
 Type  : Hold 'input_vector[0]'
-Slack : -5.768
-TNS   : -259.009
+Slack : -3.557
+TNS   : -119.582
 
 Type  : Hold 'input_vector[1]'
-Slack : 0.307
+Slack : 0.007
 TNS   : 0.000
 
 Type  : Hold 'Datapath:add_instance|RF_load'
-Slack : 7.970
+Slack : 7.903
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'input_vector[0]'
