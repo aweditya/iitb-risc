@@ -1,9 +1,5 @@
-Analysis & Synthesis Status : Successful - Sat Apr 16 23:30:17 2022
+Analysis & Synthesis Status : Failed - Sun Apr 17 09:34:10 2022
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : RISC_Microprocessor
 Top-level Entity Name : DUT
 Family : MAX V
-Total logic elements : 265
-Total pins : 18
-Total virtual pins : 0
-UFM blocks : 0 / 1 ( 0 % )
