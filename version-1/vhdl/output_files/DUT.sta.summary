@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : -16.407
+TNS   : -131.801
+
+Type  : Slow 1200mV 85C Model Setup 'input_vector[1]'
+Slack : -13.357
+TNS   : -21650.895
+
+Type  : Slow 1200mV 85C Model Hold 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : -0.326
+TNS   : -0.330
+
+Type  : Slow 1200mV 85C Model Hold 'input_vector[1]'
+Slack : 0.451
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.000
+TNS   : -3362.133
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : -0.060
+TNS   : -1.094
+
+Type  : Slow 1200mV 0C Model Setup 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : -15.511
+TNS   : -127.053
+
+Type  : Slow 1200mV 0C Model Setup 'input_vector[1]'
+Slack : -12.761
+TNS   : -20533.080
+
+Type  : Slow 1200mV 0C Model Hold 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : -0.316
+TNS   : -0.380
+
+Type  : Slow 1200mV 0C Model Hold 'input_vector[1]'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.000
+TNS   : -3362.133
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : -0.263
+TNS   : -7.794
+
+Type  : Fast 1200mV 0C Model Setup 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : -7.233
+TNS   : -59.003
+
+Type  : Fast 1200mV 0C Model Setup 'input_vector[1]'
+Slack : -5.455
+TNS   : -8271.827
+
+Type  : Fast 1200mV 0C Model Hold 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : -0.335
+TNS   : -0.335
+
+Type  : Fast 1200mV 0C Model Hold 'input_vector[1]'
+Slack : 0.184
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.000
+TNS   : -2538.307
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Datapath:add_instance|Register2Byte:IR|output[12]'
+Slack : 0.153
+TNS   : 0.000
+
+------------------------------------------------------------
