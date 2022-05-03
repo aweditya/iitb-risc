@@ -59,7 +59,7 @@ architecture run of SingleCycleDatapath is
 	end component BitShifter;
 
 	component ZeroAppender is port(
-		data_in: in std_logic_vector(15 downto 0);
+		data_in: in std_logic_vector(8 downto 0);
 		data_out: out std_logic_vector(15 downto 0));
 	end component ZeroAppender;
 
@@ -93,7 +93,7 @@ architecture run of SingleCycleDatapath is
 	        in0: in std_logic_vector(15 downto 0);
         	in1: in std_logic_vector(15 downto 0);
 	        sel: in std_logic;
-        	sel_out: out std_logic_vector(15 downto 0
+        	sel_out: out std_logic_vector(15 downto 0));
 	end component Multiplexer16bit2to1;
 
 	component Multiplexer16bit4to1 is port(
@@ -122,22 +122,30 @@ architecture run of SingleCycleDatapath is
 	signal pc_input, pc_output: std_logic_vector(15 downto 0);
 
 	-- PC Update logic signals
-	signal pc_add_select: std_logic_vector(1 downto 0);
-	signal pc_updater: std_logic_vector(15 downto 0);
-	signal pc_final_select: std_logic_vector(1 downto 0);
-	signal pc_flags: std_logic_vector(1 downto 0);
 
-	-- PC increment / PC + Imm6 / PC + Imm9
-	signal pc_updated: std_logic_vector(15 downto 0);
+	-- PC increment signal
+	signal pc_increment_flags: std_logic_vector(1 downto 0);
+	signal pc_plus_1: std_logic_vector(15 downto 0);
+
+	-- PC + imm6 / PC + imm9 signal
+	signal pc_plus_imm_flags: std_logic_vector(1 downto 0);
+	signal pc_plus_imm: std_logic_vector(15 downto 0);
+
+	-- PC Update control signals
+	signal imm_select: std_logic;
+	signal pc_imm: std_logic_vector(15 downto 0);
+	signal pc_final_select: std_logic_vector(1 downto 0);
 
 	-- ALU signals
 	signal alu_b_select: std_logic_vector(1 downto 0);
 	signal alu_a, alu_b: std_logic_vector(15 downto 0);
 	signal alu_c: std_logic_vector(15 downto 0);
+	signal alu_select: std_logic_vector(1 downto 0);
 	signal flags: std_logic_vector(1 downto 0);
 
 	-- CC load signals
 	signal z_load, c_load: std_logic;
+	signal cc_out: std_logic_vector(1 downto 0);
 
 	-- RAM signals
 	signal ram_load: std_logic;
@@ -155,13 +163,14 @@ architecture run of SingleCycleDatapath is
 	signal se6_in, se6_out: std_logic_vector(15 downto 0);
 
 	-- Sign extender 9-bit signals
-	signal se6_in, se9_out: std_logic_vector(15 downto 0);
+	signal se9_in, se9_out: std_logic_vector(15 downto 0);
 
 begin
 	control_select_process: process(clock, reset)
 	begin
 	end process;
 
+	test_out <= alu_c; 
 	-- rom_a <= pc_output;
 	rom_unit: ROM128 port map(
                 address => pc_output,
@@ -190,7 +199,7 @@ begin
 	rf_d3_mux: Multiplexer16bit4to1 port map(
                 in0 => alu_c,
                 in1 => za_out,
-                in2 => ram_out,
+                in2 => ram_d_out,
                 in3 => pc_plus_1,
                 sel => rf_d3_select,
                 sel_out => rf_d3);
@@ -204,9 +213,8 @@ begin
                 data_out_1 => rf_d1,
                 address_out_2 => rf_a2,
                 data_out_2 => rf_d2,
-                pc_in: pc_input,
-                pc_out: pc_out);
-        end component RegisterBank;
+                pc_in => pc_input,
+                pc_out => pc_output);
 
 	alu_b_mux: Multiplexer16bit4to1 port map(
                 in0 => rf_d2,
@@ -237,8 +245,8 @@ begin
 	ram_unit: RAM port map(
                 clk => clock,
                 write_enable => ram_load,
-                address => ram_a,
-                data_in => ram_d_in,
+                address => alu_c,
+                data_in => rf_d2,
                 data_out => ram_d_out);
 
 	-- shift_in <= rf_d2;
@@ -252,36 +260,42 @@ begin
 		data_out => za_out);
 
 	-- se6_in <= instruction(5 downto 0);
-	se6: SignExtender6Bits port map(
+	se6: SignExtender6Bit port map(
 		data_in => instruction(5 downto 0),
 		data_out => se6_out);
 
  	-- se9_in <= instruction(8 downto 0);
-	se9: SignExtender9Bits port map(
+	se9: SignExtender9Bit port map(
 		data_in => instruction(8 downto 0),
 		data_out => se9_out);
 
-	pc_add_mux: Multiplexer16bit4to1 port map(
-                in0 => "0000000000000001",
-                in1 => se6_out,
-                in2 => se9_out,
-                in3 => "0000000000000001",
-                sel => pc_add_select,
-                sel_out => pc_updater);
-
-	pc_final_mux: Multiplexer16bit4to1 port map(
-                in0 => pc_updated,
-                in1 => rf_d2,
-                in2 => alu_c,
-                in3 => pc_updated,
-                sel => pc_final_select,
-                sel_out => pc_in);
+	-- Configured to always add (specifically increment)
+	incrementer: ALU port map(
+		A => pc_output,
+		B => "0000000000000001",
+		control_in => "00",
+		C => pc_plus_1,
+		control_out => pc_increment_flags);
 
 	-- Configured to always add
-	adder: ALU port map(
-                A => pc_out,
-                B => pc_updater,
+        adder: ALU port map(
+                A => pc_output,
+                B => pc_imm,
                 control_in => "00",
-                C => pc_updated,
-                control_out => pc_flags);
+                C => pc_plus_imm,
+                control_out => pc_plus_imm_flags);
+
+	pc_plus_imm_mux: Multiplexer16bit2to1 port map(
+                in0 => se6_out,
+                in1 => se9_out,
+                sel => imm_select,
+                sel_out => pc_imm);
+
+	pc_final_mux: Multiplexer16bit4to1 port map(
+                in0 => pc_plus_1,
+                in1 => pc_plus_imm,
+                in2 => rf_d2,
+                in3 => alu_c,
+                sel => pc_final_select,
+                sel_out => pc_input);
 end architecture run;
