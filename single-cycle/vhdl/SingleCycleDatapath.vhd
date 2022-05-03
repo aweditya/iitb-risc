@@ -164,7 +164,7 @@ architecture run of SingleCycleDatapath is
 	signal se9_in, se9_out: std_logic_vector(15 downto 0);
 
 begin
-	control_select_process: process(clock, reset, instruction, cc_out)
+	control_select_process: process(clock, reset, instruction, cc_out, flags)
 	begin
 		case instruction(15 downto 12) is
 			when "0001" =>
@@ -309,7 +309,7 @@ begin
 						rf_load <= '1';
 						ram_load <= '0';
 						z_load <= '1';
-						c_load <= '1';
+						c_load <= '0';
 
 					when "01" =>
 						-- NDC
@@ -325,7 +325,7 @@ begin
 							rf_load <= '1';
 							ram_load <= '0';
 							z_load <= '1';
-							c_load <= '1';
+							c_load <= '0';
 
 						else
 							rf_a1_select <= '0';				-- Can be anything since carry is not set
@@ -356,7 +356,7 @@ begin
 							rf_load <= '1';
 							ram_load <= '0';
 							z_load <= '1';
-							c_load <= '1';
+							c_load <= '0';
 
 						else
 							rf_a1_select <= '0';				-- Can be anything since zero is not set
@@ -406,23 +406,114 @@ begin
 
 			when "0111" =>
 				-- LW
+				rf_a1_select <= '1';							
+				rf_a2_select <= '0';							-- Can be anything since immediate data is used
+				rf_a3_select <= "10";							
+				rf_d3_select <= "10";
+				alu_b_select <= "10";							
+				imm_select <= '0';                  			-- Can be anything since PC should be incremented
+				pc_final_select <= "00";
+				alu_select <= "00";								-- 00 is for addition
+				rf_load <= '1';
+				ram_load <= '0';
+				z_load <= '1';
+				c_load <= '0';
 
 			when "0101" =>
 				-- SW
+				rf_a1_select <= '1';							
+				rf_a2_select <= '0';							
+				rf_a3_select <= "10";							-- Can be anything since we don't write back into the register file
+				rf_d3_select <= "10";							-- Can be anything since we don't write back into the register file
+				alu_b_select <= "10";							
+				imm_select <= '0';                  			-- Can be anything since PC should be incremented
+				pc_final_select <= "00";
+				alu_select <= "00";								-- 00 is for addition
+				rf_load <= '0';
+				ram_load <= '1';
+				z_load <= '0';
+				c_load <= '0';
 
 			when "1000" =>
 				-- BEQ
+				rf_a1_select <= '0';							
+				rf_a2_select <= '1';							
+				rf_a3_select <= "00";							-- Can be anything since we don't write back into the register file
+				rf_d3_select <= "00";							-- Can be anything since we don't write back into the register file
+				alu_b_select <= "00";							
+				imm_select <= '0';                  			-- Needs to be 0 to compute PC + Imm6
+
+				if (flags(1) = '1') then
+					pc_final_select <= "01";
+				else 
+					pc_final_select <= "00";
+					end if;
+
+				alu_select <= "10";								-- 10 is for XOR
+				rf_load <= '0';
+				ram_load <= '0';
+				z_load <= '0';
+				c_load <= '0';
 
 			when "1001" =>
 				-- JAL
+				rf_a1_select <= '0';							-- Can be anything since we don't write back into the register file
+				rf_a2_select <= '1';							-- Can be anything since we don't write back into the register file
+				rf_a3_select <= "10";							-- 10 corresponds to Register RA
+				rf_d3_select <= "11";							-- 11 corresponds to PC + 1
+				alu_b_select <= "10";							-- Can be anything since ALU is not used
+				imm_select <= '1';
+				pc_final_select <= "01";
+				alu_select <= "10";								-- Can be anything since ALU is not used
+				rf_load <= '1';
+				ram_load <= '0';
+				z_load <= '0';
+				c_load <= '0';
 
 			when "1010" =>
 				-- JLR
+				rf_a1_select <= '0';							-- Can be anything since we don't write back into the register file
+				rf_a2_select <= '1';							
+				rf_a3_select <= "10";							-- 10 corresponds to Register RA
+				rf_d3_select <= "11";							-- 11 corresponds to PC + 1
+				alu_b_select <= "10";							-- Can be anything since ALU is not used
+				imm_select <= '1';								-- Can be anything since you branch to address RB
+				pc_final_select <= "10";
+				alu_select <= "10";								-- Can be anything since ALU is not used
+				rf_load <= '1';
+				ram_load <= '0';
+				z_load <= '0';
+				c_load <= '0';
 
 			when "1011" =>
 				-- JRI
+				rf_a1_select <= '0';							
+				rf_a2_select <= '1';							
+				rf_a3_select <= "10";							-- Can be anything since we don't write back into the register file
+				rf_d3_select <= "11";							-- Can be anything since we don't write back into the register file
+				alu_b_select <= "11";							
+				imm_select <= '1';								-- 1 corresponds to Imm9
+				pc_final_select <= "11";
+				alu_select <= "00";								-- ALU should add
+				rf_load <= '0';
+				ram_load <= '0';
+				z_load <= '0';
+				c_load <= '0';
 
 			when others =>
+				-- For the time being, just increment the PC
+				rf_a1_select <= '0';							
+				rf_a2_select <= '1';							
+				rf_a3_select <= "00";							
+				rf_d3_select <= "00";							
+				alu_b_select <= "00";							
+				imm_select <= '0';								
+				pc_final_select <= "00";
+				alu_select <= "00";								
+				rf_load <= '0';
+				ram_load <= '0';
+				z_load <= '0';
+				c_load <= '0';
 
 			end case;
 	end process;
