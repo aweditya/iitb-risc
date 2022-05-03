@@ -222,7 +222,7 @@ begin
                 in2 => se6_out,
                 in3 => se9_out,
                 sel => alu_b_select,
-                sel_out => rf_d3);
+                sel_out => alu_b);
 	
 	-- alu_a <= rf_d1;
 	main_alu: ALU port map(
