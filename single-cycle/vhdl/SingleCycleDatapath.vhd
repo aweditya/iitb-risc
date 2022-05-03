@@ -105,13 +105,21 @@ architecture run of SingleCycleDatapath is
         	sel_out: out std_logic_vector(15 downto 0));
 	end component Multiplexer16bit4to1;
 
-
-	-- ROM signal
+	-- ROM signals
 	signal rom_a: std_logic_vector(15 downto 0);
+	signal instruction: std_logic_vector(15 downto 0);
 
-	-- Register File signal
+	-- Register File select lines
+	signal rf_a1_select: std_logic;
+	signal rf_a2_select: std_logic;
+	signal rf_a3_select: std_logic_vector(1 downto 0);
+	signal rf_d3_select: std_logic_vector(1 downto 0);
+
+	-- Register File signals
+	signal rf_load: std_logic;
 	signal rf_a1, rf_a2, rf_a3: std_logic_vector(2 downto 0);
-	signal rf_d3, pc_input: std_logic_vector(15 downto 0);
+	signal rf_d1, rf_d2, rf_d3: std_logic_vector(15 downto 0);
+	signal pc_input, pc_output: std_logic_vector(15 downto 0);
 
 	-- PC increment signal
 	signal pc_plus_1: std_logic_vector(15 downto 0);
@@ -119,12 +127,88 @@ architecture run of SingleCycleDatapath is
 	-- PC + Imm6 / PC + Imm9 signal
 	signal pc_plus_imm: std_logic_vector(15 downto 0);
 
-	-- ALU B signal
-	signal alu_b: std_logic_vector(15 downto 0);
+	-- ALU signals
+	signal alu_b_select: std_logic_vector(1 downto 0);
+	signal alu_a, alu_b: std_logic_vector(15 downto 0);
+	signal alu_c: std_logic_vector(15 downto 0);
 
+	-- CC load signals
+	signal z_load, c_load: std_logic;
+
+	-- RAM signals
+	signal ram_load: std_logic;
+	signal ram_a: std_logic_vector(15 downto 0);
+	signal ram_d_in: std_logic_vector(15 downto 0);
+	signal ram_d_out: std_logic_vector(15 downto 0);
+
+	-- Bit shifter signals
+	signal shift_in, shift_out: std_logic_vector(15 downto 0);
+
+	-- Zero appender signals
+	signal za_in, za_out: std_logic_vector(15 downto 0);
+
+	-- Sign extender 6-bit signals
+	signal se6_in, se6_out: std_logic_vector(15 downto 0);
+
+	-- Sign extender 9-bit signals
+	signal se6_in, se9_out: std_logic_vector(15 downto 0);
 
 begin
 	control_select_process: process(clock, reset)
 	begin
 	end process;
+
+	rom_unit: ROM128 port map(
+                address => rom_a,
+                data => instruction);
+
+	rf_a1_mux: Multiplexer3bit2to1 port map(
+		in0 => instruction(11 downto 9),
+		in1 => instruction(8 downto 6),
+		sel => rf_a1_select,
+		sel_out => rf_a1);
+	
+	rf_a2_mux: Multiplexer3bit2to1 port map(
+                in0 => instruction(11 downto 9),
+                in1 => instruction(8 downto 6),
+                sel => rf_a2_select,
+                sel_out => rf_a2);
+
+	rf_a3_mux: Multiplexer3bit4to1 port map(
+                in0 => instruction(5 downto 3),
+                in1 => instruction(8 downto 6),
+		in2 => instruction(11 downto 9),
+                in3 => instruction(5 downto 3),
+                sel => rf_a3_select,
+                sel_out => rf_a3);
+
+	rf_d3_mux: Multiplexer16bit4to1 port map(
+                in0 => alu_c,
+                in1 => za_out,
+                in2 => ram_out,
+                in3 => pc_plus_1,
+                sel => rf_d3_select,
+                sel_out => rf_d3);
+
+	rf: RegisterBank port map(
+                clock => clock,
+                load => rf_load,
+                address_in => rf_a3,
+                data_in => rf_d3,
+                address_out_1 => rf_a1,
+                data_out_1 => rf_d1,
+                address_out_2 => rf_a2,
+                data_out_2 => rf_d2,
+                pc_in: pc_input,
+                pc_out: instruction);
+        end component RegisterBank;
+
+	alu_b_mux: Multiplexer16bit4to1 port map(
+                in0 => rf_d2,
+                in1 => shift_out,
+                in2 => se6_out,
+                in3 => se9_out,
+                sel => alu_b_select,
+                sel_out => rf_d3);
+
 end architecture run;
