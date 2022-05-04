@@ -518,7 +518,7 @@ begin
 			end case;
 	end process;
 
-	test_out <= alu_c; 
+	test_out <= rf_d3; 
 	-- rom_a <= pc_output;
 	rom_unit: ROM128 port map(
 		address => pc_output,

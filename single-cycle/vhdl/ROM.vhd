@@ -11,6 +11,7 @@ architecture ROM of ROM128 is
 	subtype word is std_logic_vector(7 downto 0);
 	type rom_mem is array(0 to 2**8 - 1) of word;
 	signal rom_data: rom_mem := (
+		"00000001", "00110000",
 		others => x"00"
 	);
 begin

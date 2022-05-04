@@ -1,0 +1,675 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/aditya/Projects/iitb/ee309/project-2/single-cycle/simulation/modelsim
+Ealu
+Z1 w1651329339
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 9
+R0
+Z5 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd
+Z6 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd
+l0
+L5 1
+Vl[CgbjFiSdeG4_4d9kS[X1
+!s100 @2I3EXF3>k@_1;`Xaz9HY2
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1651659799
+!i10b 1
+Z9 !s108 1651659799.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd|
+Z11 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioural
+R2
+R3
+R4
+DEx4 work 3 alu 0 22 l[CgbjFiSdeG4_4d9kS[X1
+!i122 9
+l70
+L17 86
+VLKzlZJ2OfTjLQSng8ZU_Z0
+!s100 ?UM3_?6TVSc0[YN[8M@d=2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ebitshifter
+Z14 w1651329162
+R3
+R4
+!i122 1
+R0
+Z15 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/BitShifter.vhd
+Z16 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/BitShifter.vhd
+l0
+L4 1
+V59fHKdbM^?SenM<EXm[mG2
+!s100 YLdL]TJ`LPSQOO_==h`6S2
+R7
+31
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/BitShifter.vhd|
+Z18 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/BitShifter.vhd|
+!i113 1
+R12
+R13
+Ashift
+R3
+R4
+DEx4 work 10 bitshifter 0 22 59fHKdbM^?SenM<EXm[mG2
+!i122 1
+l10
+L9 5
+VGI_A7cFfU]3;;J0V:TVik3
+!s100 hm6k0<d2K;7WWO=UOlfOe0
+R7
+31
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Edut
+Z19 w1651556238
+R3
+R4
+!i122 12
+R0
+Z20 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd
+Z21 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd
+l0
+L4 1
+VmNDUl7cGdiOD[cO;YnmE21
+!s100 ;XCGWK4I8ij;A3SnF1RZJ3
+R7
+31
+Z22 !s110 1651659800
+!i10b 1
+Z23 !s108 1651659800.000000
+Z24 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd|
+Z25 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd|
+!i113 1
+R12
+R13
+Adutwrap
+R3
+R4
+DEx4 work 3 dut 0 22 mNDUl7cGdiOD[cO;YnmE21
+!i122 12
+l18
+Z26 L10 16
+V20<]6O`gW29]bk>WJd5[o2
+!s100 Co6Zlg5c1:N5Azm^=hn]l1
+R7
+31
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R12
+R13
+Eflagregister
+Z27 w1651329168
+R3
+R4
+!i122 6
+R0
+Z28 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/FlagRegister.vhd
+Z29 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/FlagRegister.vhd
+l0
+L4 1
+Va<EOYel;M`n157Ji>zCi@0
+!s100 ;>mQGHj7B6_<hM>l[1;`d0
+R7
+31
+R8
+!i10b 1
+R9
+Z30 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/FlagRegister.vhd|
+Z31 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/FlagRegister.vhd|
+!i113 1
+R12
+R13
+Abehaviour
+R3
+R4
+DEx4 work 12 flagregister 0 22 a<EOYel;M`n157Ji>zCi@0
+!i122 6
+l13
+L12 15
+VCX?eOaPYEIEo7aFfa`SE82
+!s100 z][CnZ9[SM0fFY4hFbTDf2
+R7
+31
+R8
+!i10b 1
+R9
+R30
+R31
+!i113 1
+R12
+R13
+Emultiplexer16bit2to1
+Z32 w1651329178
+R3
+R4
+!i122 8
+R0
+Z33 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit2to1.vhd
+Z34 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit2to1.vhd
+l0
+L4 1
+VQ3mehj2zIo@N9Xh78cjM_0
+!s100 lAeVARLA4B7kGE]Na<4_i3
+R7
+31
+R8
+!i10b 1
+R9
+Z35 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit2to1.vhd|
+Z36 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit2to1.vhd|
+!i113 1
+R12
+R13
+Amux2to1_select
+R3
+R4
+DEx4 work 20 multiplexer16bit2to1 0 22 Q3mehj2zIo@N9Xh78cjM_0
+!i122 8
+l12
+Z37 L11 11
+V6VRMIo]F<ShUNnPAT=iBZ1
+!s100 M8@;ERghCDa>EFH62[aY51
+R7
+31
+R8
+!i10b 1
+R9
+R35
+R36
+!i113 1
+R12
+R13
+Emultiplexer16bit4to1
+Z38 w1651329186
+R3
+R4
+!i122 0
+R0
+Z39 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit4to1.vhd
+Z40 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit4to1.vhd
+l0
+L4 1
+VHfb?Y5_iSiO[F@D0QhSJ]0
+!s100 5KnDbS1^0h=_JT^1Z<Em^3
+R7
+31
+R8
+!i10b 1
+R9
+Z41 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit4to1.vhd|
+Z42 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit4to1.vhd|
+!i113 1
+R12
+R13
+Amux4to1_select
+R3
+R4
+DEx4 work 20 multiplexer16bit4to1 0 22 Hfb?Y5_iSiO[F@D0QhSJ]0
+!i122 0
+l14
+Z43 L13 15
+VFzU[1YV2l>d5oXV=8_Dk<1
+!s100 ;kzZJ65gNAl9zB1Qj;cOO2
+R7
+31
+R8
+!i10b 1
+R9
+R41
+R42
+!i113 1
+R12
+R13
+Emultiplexer3bit2to1
+Z44 w1651329195
+R3
+R4
+!i122 5
+R0
+Z45 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit2to1.vhd
+Z46 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit2to1.vhd
+l0
+L4 1
+VaZlOHKl54cUEkmHafhI]62
+!s100 gKk2m3;`]YfJicJ6NmNY:3
+R7
+31
+R8
+!i10b 1
+R9
+Z47 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit2to1.vhd|
+Z48 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit2to1.vhd|
+!i113 1
+R12
+R13
+Amux2to1_select
+R3
+R4
+DEx4 work 19 multiplexer3bit2to1 0 22 aZlOHKl54cUEkmHafhI]62
+!i122 5
+l12
+R37
+VZ1d@2VMg`VCb:7m`2Ohh13
+!s100 @j`[1ah5Z9nFa6P6X1z^`1
+R7
+31
+R8
+!i10b 1
+R9
+R47
+R48
+!i113 1
+R12
+R13
+Emultiplexer3bit4to1
+Z49 w1651329226
+R3
+R4
+!i122 3
+R0
+Z50 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit4to1.vhd
+Z51 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit4to1.vhd
+l0
+L4 1
+Vn;Fb7lNFf`4QN9[TnOGCL2
+!s100 [WWoan9W]ePJhi@0[Bn@J0
+R7
+31
+R8
+!i10b 1
+R9
+Z52 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit4to1.vhd|
+Z53 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit4to1.vhd|
+!i113 1
+R12
+R13
+Amux4to1_select
+R3
+R4
+DEx4 work 19 multiplexer3bit4to1 0 22 n;Fb7lNFf`4QN9[TnOGCL2
+!i122 3
+l14
+R43
+VUfIGL2ERzS[e=e@QO^g4N2
+!s100 Ph96@=h@KKO^`?<hEQUOj0
+R7
+31
+R8
+!i10b 1
+R9
+R52
+R53
+!i113 1
+R12
+R13
+Eram
+Z54 w1651327827
+R2
+R3
+R4
+!i122 10
+R0
+Z55 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/RAM.vhd
+Z56 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/RAM.vhd
+l0
+L5 1
+VW89Hlk2oR;M;ZjokHc;0c0
+!s100 7`;TP[Ilz9lS;ZVc@GRLA3
+R7
+31
+R22
+!i10b 1
+R9
+Z57 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/RAM.vhd|
+Z58 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/RAM.vhd|
+!i113 1
+R12
+R13
+Abehaviour
+R2
+R3
+R4
+DEx4 work 3 ram 0 22 W89Hlk2oR;M;ZjokHc;0c0
+!i122 10
+l21
+L14 23
+V0TV7MZ6QP1CGSaE:39D351
+!s100 Ez>7HfgBXVF3i=>kVO1Do3
+R7
+31
+R22
+!i10b 1
+R9
+R57
+R58
+!i113 1
+R12
+R13
+Eregisterbank
+Z59 w1651302645
+R2
+R3
+R4
+!i122 13
+R0
+Z60 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/RegisterBank.vhd
+Z61 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/RegisterBank.vhd
+l0
+L5 1
+VJHZWZ]l4=gjYE8kKVzcD>2
+!s100 D@WU>7JEdGbQ4JZ=4=fhh0
+R7
+31
+R22
+!i10b 1
+R23
+Z62 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/RegisterBank.vhd|
+Z63 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/RegisterBank.vhd|
+!i113 1
+R12
+R13
+Abehaviour
+R2
+R3
+R4
+DEx4 work 12 registerbank 0 22 JHZWZ]l4=gjYE8kKVzcD>2
+!i122 13
+l23
+L19 26
+VHFX<cj@?HoLlVgj]d[6<12
+!s100 BJY0;?497d8FoX4PJSR903
+R7
+31
+R22
+!i10b 1
+R23
+R62
+R63
+!i113 1
+R12
+R13
+Erom128
+Z64 w1651659766
+R2
+R3
+R4
+!i122 11
+R0
+Z65 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ROM.vhd
+Z66 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ROM.vhd
+l0
+L5 1
+Vf>YS:C]9[c;@HS2cfnm:d1
+!s100 E>90CaEG<lSccmhCDTUNL3
+R7
+31
+R22
+!i10b 1
+R23
+Z67 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ROM.vhd|
+Z68 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ROM.vhd|
+!i113 1
+R12
+R13
+Arom
+R2
+R3
+R4
+DEx4 work 6 rom128 0 22 f>YS:C]9[c;@HS2cfnm:d1
+!i122 11
+l17
+R26
+VT_z6]DAYmnb:0fL[HVOQL3
+!s100 VjQUiSDP[gA8KMb5Vgj8m2
+R7
+31
+R22
+!i10b 1
+R23
+R67
+R68
+!i113 1
+R12
+R13
+Esignextender6bit
+Z69 w1651328488
+R3
+R4
+!i122 4
+R0
+Z70 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender6.vhd
+Z71 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender6.vhd
+l0
+L4 1
+V;fz?a[XJ;o7^mKz3R:kg^0
+!s100 `S4[`bJGgk1V=ekLDgj0g0
+R7
+31
+R8
+!i10b 1
+R9
+Z72 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender6.vhd|
+Z73 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender6.vhd|
+!i113 1
+R12
+R13
+Aextend9bits
+R3
+R4
+DEx4 work 16 signextender6bit 0 22 ;fz?a[XJ;o7^mKz3R:kg^0
+!i122 4
+l11
+L10 14
+VchPh7NbZJ7i4P>2n3HaIW0
+!s100 JGcV<RPkX5dSHN@Rb]Tig3
+R7
+31
+R8
+!i10b 1
+R9
+R72
+R73
+!i113 1
+R12
+R13
+Esignextender9bit
+Z74 w1651329314
+R3
+R4
+!i122 2
+R0
+Z75 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender9.vhd
+Z76 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender9.vhd
+l0
+L4 1
+VPBh9J:k=<JNSjXO^oHggR1
+!s100 QOKS>JF[LeBo@B2z2D6[R3
+R7
+31
+R8
+!i10b 1
+R9
+Z77 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender9.vhd|
+Z78 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender9.vhd|
+!i113 1
+R12
+R13
+Aextend6bits
+R3
+R4
+DEx4 work 16 signextender9bit 0 22 PBh9J:k=<JNSjXO^oHggR1
+!i122 2
+l10
+L9 11
+Vh?H4AjEI>R?MFa4c9nLR61
+!s100 W?S8URSDX?3SYDma@A]992
+R7
+31
+R8
+!i10b 1
+R9
+R77
+R78
+!i113 1
+R12
+R13
+Esinglecycledatapath
+Z79 w1651659654
+R3
+R4
+!i122 14
+R0
+Z80 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd
+Z81 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd
+l0
+L4 1
+VgSc6D36gfX2>[DEQ6i7>m1
+!s100 ]8O9l;3K;^NkoEiTEIUF11
+R7
+31
+R22
+!i10b 1
+R23
+Z82 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd|
+Z83 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd|
+!i113 1
+R12
+R13
+Arun
+R3
+R4
+DEx4 work 19 singlecycledatapath 0 22 gSc6D36gfX2>[DEQ6i7>m1
+!i122 14
+l166
+L9 642
+Vo`92>W0fnliCYE71Z4Mdm1
+!s100 Nnz=_Z5C0S^8oO6T0UYj_0
+R7
+31
+R22
+!i10b 1
+R23
+R82
+R83
+!i113 1
+R12
+R13
+Etestbench
+Z84 w1651556093
+R4
+R3
+!i122 15
+R0
+Z85 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Testbench.vhd
+Z86 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Testbench.vhd
+l0
+L7 1
+V]iKK_Z9L:G9B:i8c]3eFH0
+!s100 bWf8kl8zb90X@P1m>V^K20
+R7
+31
+R22
+!i10b 1
+R23
+Z87 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/Testbench.vhd|
+!s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Testbench.vhd|
+!i113 1
+R12
+R13
+Abehave
+R4
+R3
+DEx4 work 9 testbench 0 22 ]iKK_Z9L:G9B:i8c]3eFH0
+!i122 15
+l69
+L9 132
+V]cCVVzAJM^h>Bibd3cm0?3
+!s100 :czzLGkRdKRfLSFC;05B^1
+R7
+31
+R22
+!i10b 1
+R23
+R87
+Z88 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Testbench.vhd|
+!i113 1
+R12
+R13
+Ezeroappender
+Z89 w1651329318
+R3
+R4
+!i122 7
+R0
+Z90 8/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ZeroAppender.vhd
+Z91 F/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ZeroAppender.vhd
+l0
+L4 1
+VCZPN1TWMEbd1fLbT4=3hC0
+!s100 ZQ>f4VeSB6loIhRC]Kmg41
+R7
+31
+R8
+!i10b 1
+R9
+Z92 !s90 -reportprogress|300|-93|-work|work|/home/aditya/Projects/iitb/ee309/project-2/single-cycle/ZeroAppender.vhd|
+Z93 !s107 /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ZeroAppender.vhd|
+!i113 1
+R12
+R13
+Aappend
+R3
+R4
+DEx4 work 12 zeroappender 0 22 CZPN1TWMEbd1fLbT4=3hC0
+!i122 7
+l10
+L9 5
+VO?AkKMBAGMkTO8QJhN9FS2
+!s100 RNnYVdK0NXRYbXealVP;:1
+R7
+31
+R8
+!i10b 1
+R9
+R92
+R93
+!i113 1
+R12
+R13
