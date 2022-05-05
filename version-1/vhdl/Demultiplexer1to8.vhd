@@ -1,40 +1,40 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity Demultiplexer1to8 is port(
-	load: in std_logic;
-	address: in std_logic_vector(2 downto 0);
-	selection_output: out std_logic_vector(7 downto 0)
+ENTITY Demultiplexer1to8 IS PORT (
+	load : IN STD_LOGIC;
+	address : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+	selection_output : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
 );
-end entity Demultiplexer1to8;
+END ENTITY Demultiplexer1to8;
 
-architecture selection of Demultiplexer1to8 is
-begin
-	selection_process: process(load, address)
-	begin
-		if (load = '1') then
-			case address is
-				when "000" => 
+ARCHITECTURE selection OF Demultiplexer1to8 IS
+BEGIN
+	selection_process : PROCESS (load, address)
+	BEGIN
+		IF (load = '1') THEN
+			CASE address IS
+				WHEN "000" =>
 					selection_output <= "00000001";
-				when "001" => 
+				WHEN "001" =>
 					selection_output <= "00000010";
-				when "010" => 
+				WHEN "010" =>
 					selection_output <= "00000100";
-				when "011" => 
+				WHEN "011" =>
 					selection_output <= "00001000";
-				when "100" => 
+				WHEN "100" =>
 					selection_output <= "00010000";
-				when "101" => 
+				WHEN "101" =>
 					selection_output <= "00100000";
-				when "110" => 
+				WHEN "110" =>
 					selection_output <= "01000000";
-				when "111" => 
+				WHEN "111" =>
 					selection_output <= "10000000";
-				when others =>
+				WHEN OTHERS =>
 					selection_output <= "00000000";
-			end case;
-		else
+			END CASE;
+		ELSE
 			selection_output <= "00000000";
-		end if;
-	end process;
-end architecture selection;
+		END IF;
+	END PROCESS;
+END ARCHITECTURE selection;

@@ -1,22 +1,22 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity Register2Byte is port( 
-	clock: in std_logic;
-	load: in std_logic; 
-	input: in std_logic_vector(15 downto 0);
-	output: out std_logic_vector(15 downto 0)
+ENTITY Register2Byte IS PORT (
+	clock : IN STD_LOGIC;
+	load : IN STD_LOGIC;
+	input : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	output : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 );
-end entity Register2Byte;
+END ENTITY Register2Byte;
 
-architecture behaviour of Register2Byte is
-begin
-	register_process : process(clock, load)
-	begin
-		if (falling_edge(clock)) then
-			if load = '1' then
+ARCHITECTURE behaviour OF Register2Byte IS
+BEGIN
+	register_process : PROCESS (clock, load)
+	BEGIN
+		IF (falling_edge(clock)) THEN
+			IF load = '1' THEN
 				output <= input;
-			end if;
-		end if;
-	end process;
-end behaviour;
+			END IF;
+		END IF;
+	END PROCESS;
+END behaviour;

@@ -1,28 +1,28 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity Multiplexer16bit4to1 is port(
-	in0: in std_logic_vector(15 downto 0);
-	in1: in std_logic_vector(15 downto 0);
-	in2: in std_logic_vector(15 downto 0);
-	in3: in std_logic_vector(15 downto 0);
-	sel: in std_logic_vector(1 downto 0);
-	sel_out: out std_logic_vector(15 downto 0)
+ENTITY Multiplexer16bit4to1 IS PORT (
+	in0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	in1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	in2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	in3 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	sel : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+	sel_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 );
-end entity Multiplexer16bit4to1;
+END ENTITY Multiplexer16bit4to1;
 
-architecture mux4to1_select of Multiplexer16bit4to1 is
-begin
-	process (in0, in1, in2, in3, sel) is 
-	begin
-		if (sel = "00") then
+ARCHITECTURE mux4to1_select OF Multiplexer16bit4to1 IS
+BEGIN
+	PROCESS (in0, in1, in2, in3, sel) IS
+	BEGIN
+		IF (sel = "00") THEN
 			sel_out <= in0;
-		elsif (sel = "01") then
+		ELSIF (sel = "01") THEN
 			sel_out <= in1;
-		elsif (sel = "10") then
+		ELSIF (sel = "10") THEN
 			sel_out <= in2;
-		else 
+		ELSE
 			sel_out <= in3;
-		end if;
-	end process;
-end architecture mux4to1_select;
+		END IF;
+	END PROCESS;
+END ARCHITECTURE mux4to1_select;

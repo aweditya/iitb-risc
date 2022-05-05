@@ -1,14 +1,14 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity BitShifter is port(
-    data_in: in std_logic_vector(15 downto 0);
-    data_out: out std_logic_vector(15 downto 0)
+ENTITY BitShifter IS PORT (
+    data_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    data_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 );
-end entity BitShifter;
+END ENTITY BitShifter;
 
-architecture shift of BitShifter is
-begin
-    data_out(15 downto 1) <= data_in(14 downto 0);
+ARCHITECTURE shift OF BitShifter IS
+BEGIN
+    data_out(15 DOWNTO 1) <= data_in(14 DOWNTO 0);
     data_out(0) <= '0';
-end architecture shift;
+END ARCHITECTURE shift;
