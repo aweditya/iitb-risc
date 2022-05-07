@@ -1,44 +1,48 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
 
-entity RegisterBank is port( 
-	clock: in std_logic;
-	load: in std_logic; 
-	address_in: in std_logic_vector(2 downto 0);
-	data_in: in std_logic_vector(15 downto 0);
-	address_out_1: in std_logic_vector(2 downto 0);
-	data_out_1: out std_logic_vector(15 downto 0);
-	address_out_2: in std_logic_vector(2 downto 0);
-	data_out_2: out std_logic_vector(15 downto 0);
-	pc_in: in std_logic_vector(15 downto 0);
-	pc_out: out std_logic_vector(15 downto 0)
+ENTITY RegisterBank IS PORT (
+	clock : IN STD_LOGIC;
+	load : IN STD_LOGIC;
+	reset : IN STD_LOGIC;
+	address_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+	data_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	address_out_1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+	data_out_1 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+	address_out_2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+	data_out_2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+	pc_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	pc_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 );
-end entity RegisterBank;
+END ENTITY RegisterBank;
 
-architecture behaviour of RegisterBank is
-	subtype word is std_logic_vector(15 downto 0);           -- Each register is 2 byte
-	type bank is array(0 to 2**3 - 1) of word;               -- 8 registers with R7 as PC
-	signal RF: bank;
-begin
-	register_bank_process: process(clock, load, address_in, data_in, address_out_1, address_out_2, RF, pc_in)
-		variable register_address : natural range 0 to 2**3 - 1;
-		variable register_out1, register_out2 : natural range 0 to 2**3 - 1;
-	begin
+ARCHITECTURE behaviour OF RegisterBank IS
+	SUBTYPE word IS STD_LOGIC_VECTOR(15 DOWNTO 0); -- Each register is 2 byte
+	TYPE bank IS ARRAY(0 TO 2 ** 3 - 1) OF word; -- 8 registers with R7 as PC
+	SIGNAL RF : bank;
+BEGIN
+	register_bank_process : PROCESS (clock, load, reset, address_in, data_in, address_out_1, address_out_2, RF, pc_in)
+		VARIABLE register_address : NATURAL RANGE 0 TO 2 ** 3 - 1;
+		VARIABLE register_out1, register_out2 : NATURAL RANGE 0 TO 2 ** 3 - 1;
+	BEGIN
 		register_address := to_integer(unsigned(address_in));
-		if (falling_edge(clock)) then
-			if (load = '1') then
+		IF (reset = '1') THEN
+			pc_out <= x"0000";
+			RF(7) <= x"0000";
+		ELSIF (falling_edge(clock)) THEN
+			IF (load = '1') THEN
 				RF(register_address) <= data_in;
-				end if;
+			END IF;
 
-			pc_out <= pc_in;                         -- PC Update in every cycle
+			pc_out <= pc_in; -- PC Update in every cycle
 			RF(7) <= pc_in;
-			end if;
+		END IF;
 
 		register_out1 := to_integer(unsigned(address_out_1));
 		register_out2 := to_integer(unsigned(address_out_2));
 		data_out_1 <= RF(register_out1);
 		data_out_2 <= RF(register_out2);
 
-	end process;
-end architecture behaviour;
+	END PROCESS;
+END ARCHITECTURE behaviour;

@@ -1,21 +1,21 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity Multiplexer3bit2to1 is port(
-	in0: in std_logic_vector(2 downto 0);
-	in1: in std_logic_vector(2 downto 0);
-	sel: in std_logic;
-	sel_out: out std_logic_vector(2 downto 0));
-end entity Multiplexer3bit2to1;
+ENTITY Multiplexer3bit2to1 IS PORT (
+	in0 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+	in1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+	sel : IN STD_LOGIC;
+	sel_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
+END ENTITY Multiplexer3bit2to1;
 
-architecture mux2to1_select of Multiplexer3bit2to1 is
-begin
-	process (in0, in1, sel) is 
-	begin
-		if (sel = '0') then
+ARCHITECTURE mux2to1_select OF Multiplexer3bit2to1 IS
+BEGIN
+	PROCESS (in0, in1, sel) IS
+	BEGIN
+		IF (sel = '0') THEN
 			sel_out <= in0;
-		else 
+		ELSE
 			sel_out <= in1;
-		end if;
-	end process;
-end architecture mux2to1_select;
+		END IF;
+	END PROCESS;
+END ARCHITECTURE mux2to1_select;

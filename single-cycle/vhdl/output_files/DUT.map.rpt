@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DUT
-Wed May  4 15:53:09 2022
+Thu May  5 19:46:58 2022
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -51,15 +51,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May  4 15:53:09 2022       ;
+; Analysis & Synthesis Status        ; Successful - Thu May  5 19:46:58 2022       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; DUT                                         ;
 ; Top-level Entity Name              ; DUT                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 13                                          ;
-;     Total combinational functions  ; 13                                          ;
-;     Dedicated logic registers      ; 9                                           ;
-; Total registers                    ; 9                                           ;
+; Total logic elements               ; 388                                         ;
+;     Total combinational functions  ; 352                                         ;
+;     Dedicated logic registers      ; 68                                          ;
+; Total registers                    ; 68                                          ;
 ; Total pins                         ; 18                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -172,27 +172,28 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                            ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                     ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
-; Multiplexer16bit4to1.vhd         ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit4to1.vhd ;         ;
-; BitShifter.vhd                   ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/BitShifter.vhd           ;         ;
-; SignExtender9.vhd                ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender9.vhd        ;         ;
-; Multiplexer3bit4to1.vhd          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit4to1.vhd  ;         ;
-; SignExtender6.vhd                ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender6.vhd        ;         ;
-; Multiplexer3bit2to1.vhd          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit2to1.vhd  ;         ;
-; FlagRegister.vhd                 ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/FlagRegister.vhd         ;         ;
-; ZeroAppender.vhd                 ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ZeroAppender.vhd         ;         ;
-; Multiplexer16bit2to1.vhd         ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit2to1.vhd ;         ;
-; ALU.vhd                          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd                  ;         ;
-; RAM.vhd                          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/RAM.vhd                  ;         ;
-; ROM.vhd                          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ROM.vhd                  ;         ;
-; DUT.vhd                          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd                  ;         ;
-; RegisterBank.vhd                 ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/RegisterBank.vhd         ;         ;
-; SingleCycleDatapath.vhd          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd  ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
+; Controller.vhd                   ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Controller.vhd           ;         ;
+; Multiplexer16bit4to1.vhd         ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer16bit4to1.vhd ;         ;
+; BitShifter.vhd                   ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/BitShifter.vhd           ;         ;
+; SignExtender9.vhd                ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SignExtender9.vhd        ;         ;
+; Multiplexer3bit4to1.vhd          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer3bit4to1.vhd  ;         ;
+; SignExtender6.vhd                ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SignExtender6.vhd        ;         ;
+; Multiplexer3bit2to1.vhd          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer3bit2to1.vhd  ;         ;
+; FlagRegister.vhd                 ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/FlagRegister.vhd         ;         ;
+; ZeroAppender.vhd                 ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ZeroAppender.vhd         ;         ;
+; Multiplexer16bit2to1.vhd         ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer16bit2to1.vhd ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd                  ;         ;
+; RAM.vhd                          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/RAM.vhd                  ;         ;
+; ROM.vhd                          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ROM.vhd                  ;         ;
+; DUT.vhd                          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/DUT.vhd                  ;         ;
+; RegisterBank.vhd                 ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/RegisterBank.vhd         ;         ;
+; SingleCycleDatapath.vhd          ; yes             ; User VHDL File  ; /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd  ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------------+
@@ -200,20 +201,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Estimated Total logic elements              ; 13                    ;
+; Estimated Total logic elements              ; 388                   ;
 ;                                             ;                       ;
-; Total combinational functions               ; 13                    ;
+; Total combinational functions               ; 352                   ;
 ; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 6                     ;
-;     -- 3 input functions                    ; 2                     ;
-;     -- <=2 input functions                  ; 5                     ;
+;     -- 4 input functions                    ; 250                   ;
+;     -- 3 input functions                    ; 81                    ;
+;     -- <=2 input functions                  ; 21                    ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 13                    ;
+;     -- normal mode                          ; 352                   ;
 ;     -- arithmetic mode                      ; 0                     ;
 ;                                             ;                       ;
-; Total registers                             ; 9                     ;
-;     -- Dedicated logic registers            ; 9                     ;
+; Total registers                             ; 68                    ;
+;     -- Dedicated logic registers            ; 68                    ;
 ;     -- I/O registers                        ; 0                     ;
 ;                                             ;                       ;
 ; I/O pins                                    ; 18                    ;
@@ -221,24 +222,31 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0                     ;
 ;                                             ;                       ;
 ; Maximum fan-out node                        ; input_vector[1]~input ;
-; Maximum fan-out                             ; 9                     ;
-; Total fan-out                               ; 77                    ;
-; Average fan-out                             ; 1.33                  ;
+; Maximum fan-out                             ; 68                    ;
+; Total fan-out                               ; 1523                  ;
+; Average fan-out                             ; 3.34                  ;
 +---------------------------------------------+-----------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                            ;
-+----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------+----------------------+--------------+
-; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                  ; Entity Name          ; Library Name ;
-+----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------+----------------------+--------------+
-; |DUT                                   ; 13 (0)              ; 9 (0)                     ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |DUT                                                                 ; DUT                  ; work         ;
-;    |SingleCycleDatapath:add_instance|  ; 13 (0)              ; 9 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance                                ; SingleCycleDatapath  ; work         ;
-;       |ALU:incrementer|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|ALU:incrementer                ; ALU                  ; work         ;
-;       |Multiplexer16bit4to1:rf_d3_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|Multiplexer16bit4to1:rf_d3_mux ; Multiplexer16bit4to1 ; work         ;
-;       |ROM128:rom_unit|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|ROM128:rom_unit                ; ROM128               ; work         ;
-;       |RegisterBank:rf|                ; 1 (1)               ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|RegisterBank:rf                ; RegisterBank         ; work         ;
-+----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------+----------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                        ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                        ; Entity Name          ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+----------------------+--------------+
+; |DUT                                         ; 352 (0)             ; 68 (0)                    ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |DUT                                                                       ; DUT                  ; work         ;
+;    |SingleCycleDatapath:add_instance|        ; 352 (0)             ; 68 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance                                      ; SingleCycleDatapath  ; work         ;
+;       |ALU:adder|                            ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|ALU:adder                            ; ALU                  ; work         ;
+;       |ALU:incrementer|                      ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|ALU:incrementer                      ; ALU                  ; work         ;
+;       |ALU:main_alu|                         ; 106 (106)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|ALU:main_alu                         ; ALU                  ; work         ;
+;       |Controller:control_unit|              ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|Controller:control_unit              ; Controller           ; work         ;
+;       |Multiplexer16bit2to1:pc_plus_imm_mux| ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|Multiplexer16bit2to1:pc_plus_imm_mux ; Multiplexer16bit2to1 ; work         ;
+;       |Multiplexer16bit4to1:alu_b_mux|       ; 35 (35)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|Multiplexer16bit4to1:alu_b_mux       ; Multiplexer16bit4to1 ; work         ;
+;       |Multiplexer16bit4to1:pc_final_mux|    ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|Multiplexer16bit4to1:pc_final_mux    ; Multiplexer16bit4to1 ; work         ;
+;       |Multiplexer16bit4to1:rf_d3_mux|       ; 26 (26)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|Multiplexer16bit4to1:rf_d3_mux       ; Multiplexer16bit4to1 ; work         ;
+;       |Multiplexer3bit4to1:rf_a3_mux|        ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|Multiplexer3bit4to1:rf_a3_mux        ; Multiplexer3bit4to1  ; work         ;
+;       |ROM128:rom_unit|                      ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|ROM128:rom_unit                      ; ROM128               ; work         ;
+;       |RegisterBank:rf|                      ; 79 (79)             ; 68 (68)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SingleCycleDatapath:add_instance|RegisterBank:rf                      ; RegisterBank         ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -2311,42 +2319,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~2045 ; Stuck at GND due to stuck port clock                                   ;
 ; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~2046 ; Stuck at GND due to stuck port clock                                   ;
 ; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~2047 ; Stuck at GND due to stuck port clock                                   ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][0]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][0]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][0]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][0]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][0]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][0]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][1]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][1]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][1]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][1]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][1]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][1]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][2]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][2]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][2]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][2]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][2]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][2]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][3]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][3]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][3]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][3]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][3]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][3]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][4]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][4]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][4]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][4]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][4]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][4]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][5]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][5]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][5]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][5]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][5]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][5]      ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[128][0]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[130][0]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[132][0]   ; Stuck at GND due to stuck port clock_enable                            ;
@@ -2475,12 +2447,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[122][0]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[124][0]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[126][0]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][6]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][6]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][6]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][6]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][6]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][6]      ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[128][1]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[130][1]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[132][1]   ; Stuck at GND due to stuck port clock_enable                            ;
@@ -3249,12 +3215,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[122][6]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[124][6]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[126][6]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][7]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][7]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][7]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][7]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][7]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][7]      ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][7]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][7]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][7]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -3383,12 +3343,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[250][7]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[252][7]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[254][7]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][8]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][8]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][8]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][8]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][8]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][8]      ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][0]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][0]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][0]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -3517,12 +3471,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[251][0]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[253][0]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[255][0]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][9]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][9]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][9]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][9]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][9]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][9]      ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][1]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][1]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][1]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -3651,12 +3599,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[251][1]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[253][1]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[255][1]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][10]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][10]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][10]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][10]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][10]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][10]     ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][2]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][2]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][2]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -3785,12 +3727,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[251][2]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[253][2]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[255][2]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][11]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][11]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][11]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][11]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][11]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][11]     ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][3]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][3]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][3]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -3919,12 +3855,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[251][3]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[253][3]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[255][3]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][12]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][12]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][12]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][12]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][12]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][12]     ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][4]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][4]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][4]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -4053,12 +3983,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[251][4]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[253][4]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[255][4]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][13]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][13]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][13]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][13]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][13]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][13]     ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][5]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][5]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][5]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -4187,12 +4111,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[251][5]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[253][5]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[255][5]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][14]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][14]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][14]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][14]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][14]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][14]     ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][6]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][6]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][6]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -4321,12 +4239,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[251][6]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[253][6]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[255][6]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][15]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][15]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][15]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][15]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][15]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][15]     ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][7]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][7]     ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][7]     ; Stuck at GND due to stuck port clock_enable                            ;
@@ -4455,127 +4367,190 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[251][7]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[253][7]   ; Stuck at GND due to stuck port clock_enable                            ;
 ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[255][7]   ; Stuck at GND due to stuck port clock_enable                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][7]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][8]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][9]      ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][10]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][11]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][12]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][13]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][14]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][15]     ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][0]      ; Stuck at GND due to stuck port data_in                                 ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][0]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][0]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][5]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][5]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][6]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][6]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][4]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][4]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][3]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][3]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][2]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][2]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][1]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][1]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][7]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][7]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][8]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][8]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][9]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][9]      ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][10]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][10]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][11]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][11]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][12]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][12]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][13]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][13]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][14]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][14]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][15]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][15]     ; Stuck at GND due to stuck port clock_enable                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][2]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][2]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][4]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][4]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][5]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][5]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][6]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][6]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][7]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][7]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][8]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][8]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][9]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][9]      ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][10]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][10]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][11]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][11]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][12]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][12]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][13]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][13]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][14]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][14]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][14]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][15]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][15]     ; Lost fanout                                                            ;
+; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][15]     ; Lost fanout                                                            ;
 ; SingleCycleDatapath:add_instance|FlagRegister:cc|output[0,1]   ; Lost fanout                                                            ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][1]      ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][2]      ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][4]      ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][3]      ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][5]      ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][6]      ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][7]      ; Stuck at VCC due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][8]      ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][9]      ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][10]     ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][11]     ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][12]     ; Stuck at GND due to stuck port data_in                                 ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][13]     ; Stuck at GND due to stuck port data_in                                 ;
-; Total Number of Removed Registers = 4233                       ;                                                                        ;
+; Total Number of Removed Registers = 4174                       ;                                                                        ;
 +----------------------------------------------------------------+------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                         ;
-+-------------------------------------------------------------+-------------------------+-------------------------------------------------------------+
-; Register name                                               ; Reason for Removal      ; Registers Removed due to This Register                      ;
-+-------------------------------------------------------------+-------------------------+-------------------------------------------------------------+
-; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~0 ; Stuck at GND            ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][0], ;
-;                                                             ; due to stuck port clock ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][0], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][1], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][1], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][2], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][2], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][3], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][3], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][4], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][4], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][5], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][5], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][6], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][6], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][7],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][7], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][7], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][8],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][8],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][0], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][0], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][1], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][1], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][2], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][2], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][3], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][3], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][4], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][4], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][5], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][5], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][6], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][6], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][7], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][7], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][7],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][8],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|FlagRegister:cc|output[0], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][1],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][2],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][5],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][6]   ;
-; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~2 ; Stuck at GND            ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][0], ;
-;                                                             ; due to stuck port clock ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][1], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][2], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][3], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][4], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][5], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][6], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][7], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][0], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][1], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][2], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][3], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][4], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][5], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][6], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][7], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][9],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][7],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][8],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][9],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][10], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][11], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][12], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][13]  ;
-; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~5 ; Stuck at GND            ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][4],  ;
-;                                                             ; due to stuck port clock ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][10], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][11], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][11], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][12]  ;
-; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~1 ; Stuck at GND            ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][0],  ;
-;                                                             ; due to stuck port clock ; SingleCycleDatapath:add_instance|FlagRegister:cc|output[1], ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][4],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[0][3]   ;
-; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~3 ; Stuck at GND            ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][3],  ;
-;                                                             ; due to stuck port clock ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][3],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][3],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][10]  ;
-; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~6 ; Stuck at GND            ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][5],  ;
-;                                                             ; due to stuck port clock ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][6],  ;
-;                                                             ;                         ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][6]   ;
-; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~4 ; Stuck at GND            ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][11]  ;
-;                                                             ; due to stuck port clock ;                                                             ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][13]  ; Lost Fanouts            ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][13]  ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][14]  ; Lost Fanouts            ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][14]  ;
-; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[1][15]  ; Lost Fanouts            ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][15]  ;
-+-------------------------------------------------------------+-------------------------+-------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                 ;
++--------------------------------------------------------------+--------------------------------+-------------------------------------------------------------+
+; Register name                                                ; Reason for Removal             ; Registers Removed due to This Register                      ;
++--------------------------------------------------------------+--------------------------------+-------------------------------------------------------------+
+; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~0  ; Stuck at GND                   ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][0], ;
+;                                                              ; due to stuck port clock        ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][0], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][1], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][1], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][2], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][2], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][3], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][3], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][4], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][4], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][5], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][5], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][6], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][6], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[0][7], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[2][7], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][0], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][0], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][1], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][1], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][2], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][2], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][3], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][3], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][4], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][4], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][5], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][5], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][6], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][6], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[1][7], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[3][7], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][0],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][0],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][5],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][5],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][6],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][6],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][4],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][4],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][3],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][3],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][2],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][2],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][1],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][1],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][7],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][7],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][8],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][8],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][9],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][9],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][10], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][10], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][11], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][12], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][12], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][13], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][13], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][14], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][14], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][14], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[5][15], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][15], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][15], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|FlagRegister:cc|output[0]  ;
+; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~2  ; Stuck at GND                   ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][0], ;
+;                                                              ; due to stuck port clock        ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][1], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][2], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][3], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][4], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][5], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][6], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[4][7], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][0], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][1], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][2], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][3], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][4], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][5], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][6], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[5][7], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][7],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][7],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][8],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][8],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][9],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][9],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][10], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][10], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][11], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][11], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][12], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][12], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][13], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][13], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][14], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][14], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[6][15], ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[4][15]  ;
+; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[128][2] ; Stuck at GND                   ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][2],  ;
+;                                                              ; due to stuck port clock_enable ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][2],  ;
+;                                                              ;                                ; SingleCycleDatapath:add_instance|FlagRegister:cc|output[1]  ;
+; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[128][4] ; Stuck at GND                   ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][4],  ;
+;                                                              ; due to stuck port clock_enable ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][4]   ;
+; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[128][5] ; Stuck at GND                   ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][5],  ;
+;                                                              ; due to stuck port clock_enable ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][5]   ;
+; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~5  ; Stuck at GND                   ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][11]  ;
+;                                                              ; due to stuck port clock        ;                                                             ;
+; SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data~6  ; Stuck at GND                   ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[2][6]   ;
+;                                                              ; due to stuck port clock        ;                                                             ;
+; SingleCycleDatapath:add_instance|RAM:ram_unit|RAM128[128][6] ; Stuck at GND                   ; SingleCycleDatapath:add_instance|RegisterBank:rf|RF[3][6]   ;
+;                                                              ; due to stuck port clock_enable ;                                                             ;
++--------------------------------------------------------------+--------------------------------+-------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -4583,12 +4558,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 9     ;
+; Total registers                              ; 68    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 16    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 52    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -4599,7 +4574,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------+
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |DUT|SingleCycleDatapath:add_instance|RegisterBank:rf|RF[7][9]                   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |DUT|SingleCycleDatapath:add_instance|Mux4                                       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |DUT|SingleCycleDatapath:add_instance|Controller:control_unit|Mux2               ;
 ; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |DUT|SingleCycleDatapath:add_instance|ALU:main_alu|C[1]                          ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |DUT|SingleCycleDatapath:add_instance|Multiplexer16bit4to1:alu_b_mux|sel_out[12] ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |DUT|SingleCycleDatapath:add_instance|Multiplexer3bit4to1:rf_a3_mux|sel_out[2]   ;
@@ -4673,18 +4648,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 18                          ;
-; cycloneiii_ff         ; 9                           ;
-;     plain             ; 9                           ;
-; cycloneiii_lcell_comb ; 15                          ;
-;     normal            ; 15                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 6                           ;
+; cycloneiii_ff         ; 68                          ;
+;     CLR               ; 16                          ;
+;     ENA               ; 52                          ;
+; cycloneiii_lcell_comb ; 352                         ;
+;     normal            ; 352                         ;
+;         2 data inputs ; 21                          ;
+;         3 data inputs ; 81                          ;
+;         4 data inputs ; 250                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.80                        ;
+; Max LUT depth         ; 27.00                       ;
+; Average LUT depth     ; 17.91                       ;
 +-----------------------+-----------------------------+
 
 
@@ -4703,208 +4677,195 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed May  4 15:53:02 2022
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off single-cycle -c DUT
+    Info: Processing started: Thu May  5 19:46:51 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off backup -c DUT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file Controller.vhd
+    Info (12022): Found design unit 1: Controller-control File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Controller.vhd Line: 23
+    Info (12023): Found entity 1: Controller File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Controller.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file Multiplexer16bit4to1.vhd
-    Info (12022): Found design unit 1: Multiplexer16bit4to1-mux4to1_select File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit4to1.vhd Line: 13
-    Info (12023): Found entity 1: Multiplexer16bit4to1 File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit4to1.vhd Line: 4
+    Info (12022): Found design unit 1: Multiplexer16bit4to1-mux4to1_select File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer16bit4to1.vhd Line: 13
+    Info (12023): Found entity 1: Multiplexer16bit4to1 File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer16bit4to1.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file BitShifter.vhd
-    Info (12022): Found design unit 1: BitShifter-shift File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/BitShifter.vhd Line: 9
-    Info (12023): Found entity 1: BitShifter File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/BitShifter.vhd Line: 4
+    Info (12022): Found design unit 1: BitShifter-shift File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/BitShifter.vhd Line: 9
+    Info (12023): Found entity 1: BitShifter File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/BitShifter.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file SignExtender9.vhd
-    Info (12022): Found design unit 1: SignExtender9Bit-extend6Bits File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender9.vhd Line: 9
-    Info (12023): Found entity 1: SignExtender9Bit File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender9.vhd Line: 4
+    Info (12022): Found design unit 1: SignExtender9Bit-extend6Bits File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SignExtender9.vhd Line: 9
+    Info (12023): Found entity 1: SignExtender9Bit File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SignExtender9.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file Multiplexer3bit4to1.vhd
-    Info (12022): Found design unit 1: Multiplexer3bit4to1-mux4to1_select File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit4to1.vhd Line: 13
-    Info (12023): Found entity 1: Multiplexer3bit4to1 File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit4to1.vhd Line: 4
+    Info (12022): Found design unit 1: Multiplexer3bit4to1-mux4to1_select File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer3bit4to1.vhd Line: 13
+    Info (12023): Found entity 1: Multiplexer3bit4to1 File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer3bit4to1.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file SignExtender6.vhd
-    Info (12022): Found design unit 1: SignExtender6Bit-extend9Bits File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender6.vhd Line: 10
-    Info (12023): Found entity 1: SignExtender6Bit File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SignExtender6.vhd Line: 4
+    Info (12022): Found design unit 1: SignExtender6Bit-extend9Bits File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SignExtender6.vhd Line: 10
+    Info (12023): Found entity 1: SignExtender6Bit File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SignExtender6.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file Multiplexer3bit2to1.vhd
-    Info (12022): Found design unit 1: Multiplexer3bit2to1-mux2to1_select File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit2to1.vhd Line: 11
-    Info (12023): Found entity 1: Multiplexer3bit2to1 File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer3bit2to1.vhd Line: 4
+    Info (12022): Found design unit 1: Multiplexer3bit2to1-mux2to1_select File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer3bit2to1.vhd Line: 11
+    Info (12023): Found entity 1: Multiplexer3bit2to1 File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer3bit2to1.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file FlagRegister.vhd
-    Info (12022): Found design unit 1: FlagRegister-behaviour File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/FlagRegister.vhd Line: 12
-    Info (12023): Found entity 1: FlagRegister File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/FlagRegister.vhd Line: 4
+    Info (12022): Found design unit 1: FlagRegister-behaviour File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/FlagRegister.vhd Line: 12
+    Info (12023): Found entity 1: FlagRegister File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/FlagRegister.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ZeroAppender.vhd
-    Info (12022): Found design unit 1: ZeroAppender-append File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ZeroAppender.vhd Line: 9
-    Info (12023): Found entity 1: ZeroAppender File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ZeroAppender.vhd Line: 4
+    Info (12022): Found design unit 1: ZeroAppender-append File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ZeroAppender.vhd Line: 9
+    Info (12023): Found entity 1: ZeroAppender File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ZeroAppender.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file Multiplexer16bit2to1.vhd
-    Info (12022): Found design unit 1: Multiplexer16bit2to1-mux2to1_select File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit2to1.vhd Line: 11
-    Info (12023): Found entity 1: Multiplexer16bit2to1 File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Multiplexer16bit2to1.vhd Line: 4
+    Info (12022): Found design unit 1: Multiplexer16bit2to1-mux2to1_select File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer16bit2to1.vhd Line: 11
+    Info (12023): Found entity 1: Multiplexer16bit2to1 File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Multiplexer16bit2to1.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
-    Info (12022): Found design unit 1: ALU-behavioural File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 17
-    Info (12023): Found entity 1: ALU File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 5
+    Info (12022): Found design unit 1: ALU-behavioural File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 17
+    Info (12023): Found entity 1: ALU File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file RAM.vhd
-    Info (12022): Found design unit 1: RAM-behaviour File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/RAM.vhd Line: 14
-    Info (12023): Found entity 1: RAM File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/RAM.vhd Line: 5
+    Info (12022): Found design unit 1: RAM-behaviour File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/RAM.vhd Line: 14
+    Info (12023): Found entity 1: RAM File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/RAM.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file ROM.vhd
-    Info (12022): Found design unit 1: ROM128-ROM File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ROM.vhd Line: 10
-    Info (12023): Found entity 1: ROM128 File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ROM.vhd Line: 5
+    Info (12022): Found design unit 1: ROM128-ROM File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ROM.vhd Line: 10
+    Info (12023): Found entity 1: ROM128 File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ROM.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file DUT.vhd
-    Info (12022): Found design unit 1: DUT-DutWrap File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 10
-    Info (12023): Found entity 1: DUT File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 4
+    Info (12022): Found design unit 1: DUT-DutWrap File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/DUT.vhd Line: 10
+    Info (12023): Found entity 1: DUT File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/DUT.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file Testbench.vhd
-    Info (12022): Found design unit 1: Testbench-Behave File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Testbench.vhd Line: 9
-    Info (12023): Found entity 1: Testbench File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/Testbench.vhd Line: 7
+    Info (12022): Found design unit 1: Testbench-Behave File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Testbench.vhd Line: 9
+    Info (12023): Found entity 1: Testbench File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/Testbench.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file RegisterBank.vhd
-    Info (12022): Found design unit 1: RegisterBank-behaviour File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/RegisterBank.vhd Line: 19
-    Info (12023): Found entity 1: RegisterBank File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/RegisterBank.vhd Line: 5
+    Info (12022): Found design unit 1: RegisterBank-behaviour File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/RegisterBank.vhd Line: 20
+    Info (12023): Found entity 1: RegisterBank File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/RegisterBank.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file SingleCycleDatapath.vhd
-    Info (12022): Found design unit 1: SingleCycleDatapath-run File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 9
-    Info (12023): Found entity 1: SingleCycleDatapath File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 4
+    Info (12022): Found design unit 1: SingleCycleDatapath-run File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 10
+    Info (12023): Found entity 1: SingleCycleDatapath File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 4
 Info (12127): Elaborating entity "DUT" for the top level hierarchy
-Info (12128): Elaborating entity "SingleCycleDatapath" for hierarchy "SingleCycleDatapath:add_instance" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 19
-Warning (10036): Verilog HDL or VHDL warning at SingleCycleDatapath.vhd(125): object "pc_increment_flags" assigned a value but never read File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 125
-Warning (10036): Verilog HDL or VHDL warning at SingleCycleDatapath.vhd(129): object "pc_plus_imm_flags" assigned a value but never read File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 129
-Info (12128): Elaborating entity "ROM128" for hierarchy "SingleCycleDatapath:add_instance|ROM128:rom_unit" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 523
-Info (12128): Elaborating entity "Multiplexer3bit2to1" for hierarchy "SingleCycleDatapath:add_instance|Multiplexer3bit2to1:rf_a1_mux" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 527
-Info (12128): Elaborating entity "Multiplexer3bit4to1" for hierarchy "SingleCycleDatapath:add_instance|Multiplexer3bit4to1:rf_a3_mux" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 539
-Info (12128): Elaborating entity "Multiplexer16bit4to1" for hierarchy "SingleCycleDatapath:add_instance|Multiplexer16bit4to1:rf_d3_mux" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 547
-Info (12128): Elaborating entity "RegisterBank" for hierarchy "SingleCycleDatapath:add_instance|RegisterBank:rf" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 555
-Info (12128): Elaborating entity "ALU" for hierarchy "SingleCycleDatapath:add_instance|ALU:main_alu" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 576
-Warning (10631): VHDL Process Statement warning at ALU.vhd(71): inferring latch(es) for signal or variable "C", which holds its previous value in one or more paths through the process File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (10631): VHDL Process Statement warning at ALU.vhd(71): inferring latch(es) for signal or variable "control_out", which holds its previous value in one or more paths through the process File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "control_out[0]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "control_out[1]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[0]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[1]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[2]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[3]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[4]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[5]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[6]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[7]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[8]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[9]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[10]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[11]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[12]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[13]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[14]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (10041): Inferred latch for "C[15]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Info (12128): Elaborating entity "FlagRegister" for hierarchy "SingleCycleDatapath:add_instance|FlagRegister:cc" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 584
-Info (12128): Elaborating entity "RAM" for hierarchy "SingleCycleDatapath:add_instance|RAM:ram_unit" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 593
-Info (12128): Elaborating entity "BitShifter" for hierarchy "SingleCycleDatapath:add_instance|BitShifter:shifter" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 601
-Info (12128): Elaborating entity "ZeroAppender" for hierarchy "SingleCycleDatapath:add_instance|ZeroAppender:za" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 606
-Info (12128): Elaborating entity "SignExtender6Bit" for hierarchy "SingleCycleDatapath:add_instance|SignExtender6Bit:se6" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 611
-Info (12128): Elaborating entity "SignExtender9Bit" for hierarchy "SingleCycleDatapath:add_instance|SignExtender9Bit:se9" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 616
-Info (12128): Elaborating entity "Multiplexer16bit2to1" for hierarchy "SingleCycleDatapath:add_instance|Multiplexer16bit2to1:pc_plus_imm_mux" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/SingleCycleDatapath.vhd Line: 628
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|control_out[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|control_out[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
-Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ALU.vhd Line: 71
+Info (12128): Elaborating entity "SingleCycleDatapath" for hierarchy "SingleCycleDatapath:add_instance" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/DUT.vhd Line: 19
+Warning (10036): Verilog HDL or VHDL warning at SingleCycleDatapath.vhd(146): object "pc_increment_flags" assigned a value but never read File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 146
+Warning (10036): Verilog HDL or VHDL warning at SingleCycleDatapath.vhd(150): object "pc_plus_imm_flags" assigned a value but never read File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 150
+Info (12128): Elaborating entity "ROM128" for hierarchy "SingleCycleDatapath:add_instance|ROM128:rom_unit" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 192
+Info (12128): Elaborating entity "Multiplexer3bit2to1" for hierarchy "SingleCycleDatapath:add_instance|Multiplexer3bit2to1:rf_a1_mux" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 196
+Info (12128): Elaborating entity "Multiplexer3bit4to1" for hierarchy "SingleCycleDatapath:add_instance|Multiplexer3bit4to1:rf_a3_mux" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 208
+Info (12128): Elaborating entity "Multiplexer16bit4to1" for hierarchy "SingleCycleDatapath:add_instance|Multiplexer16bit4to1:rf_d3_mux" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 216
+Info (12128): Elaborating entity "RegisterBank" for hierarchy "SingleCycleDatapath:add_instance|RegisterBank:rf" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 224
+Info (12128): Elaborating entity "ALU" for hierarchy "SingleCycleDatapath:add_instance|ALU:main_alu" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 246
+Warning (10631): VHDL Process Statement warning at ALU.vhd(71): inferring latch(es) for signal or variable "C", which holds its previous value in one or more paths through the process File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (10631): VHDL Process Statement warning at ALU.vhd(71): inferring latch(es) for signal or variable "control_out", which holds its previous value in one or more paths through the process File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "control_out[0]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "control_out[1]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[0]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[1]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[2]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[3]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[4]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[5]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[6]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[7]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[8]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[9]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[10]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[11]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[12]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[13]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[14]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (10041): Inferred latch for "C[15]" at ALU.vhd(71) File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Info (12128): Elaborating entity "FlagRegister" for hierarchy "SingleCycleDatapath:add_instance|FlagRegister:cc" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 254
+Info (12128): Elaborating entity "RAM" for hierarchy "SingleCycleDatapath:add_instance|RAM:ram_unit" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 263
+Info (12128): Elaborating entity "BitShifter" for hierarchy "SingleCycleDatapath:add_instance|BitShifter:shifter" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 271
+Info (12128): Elaborating entity "ZeroAppender" for hierarchy "SingleCycleDatapath:add_instance|ZeroAppender:za" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 276
+Info (12128): Elaborating entity "SignExtender6Bit" for hierarchy "SingleCycleDatapath:add_instance|SignExtender6Bit:se6" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 281
+Info (12128): Elaborating entity "SignExtender9Bit" for hierarchy "SingleCycleDatapath:add_instance|SignExtender9Bit:se9" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 286
+Info (12128): Elaborating entity "Multiplexer16bit2to1" for hierarchy "SingleCycleDatapath:add_instance|Multiplexer16bit2to1:pc_plus_imm_mux" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 298
+Info (12128): Elaborating entity "Controller" for hierarchy "SingleCycleDatapath:add_instance|Controller:control_unit" File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/SingleCycleDatapath.vhd Line: 321
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:adder|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:incrementer|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[12]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[11]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[10]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[9]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[8]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[7]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[6]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[5]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[4]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[3]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[2]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|control_out[1]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|control_out[0]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[14]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[13]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
+Warning (14026): LATCH primitive "SingleCycleDatapath:add_instance|ALU:main_alu|C[15]" is permanently enabled File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ALU.vhd Line: 71
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data" is uninferred due to asynchronous read logic File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/ROM.vhd Line: 13
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "output_vector[0]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[1]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[2]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[3]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[4]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[5]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[6]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[7]" is stuck at VCC File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[8]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[9]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[10]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[11]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[12]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
-    Warning (13410): Pin "output_vector[13]" is stuck at GND File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 6
+    Info (276007): RAM logic "SingleCycleDatapath:add_instance|ROM128:rom_unit|rom_data" is uninferred due to asynchronous read logic File: /home/aditya/Projects/iitb/ee309/project-2/backup/vhdl/ROM.vhd Line: 13
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 107 registers lost all their fanouts during netlist optimizations.
+Info (17049): 30 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "input_vector[0]" File: /home/aditya/Projects/iitb/ee309/project-2/single-cycle/DUT.vhd Line: 5
-Info (21057): Implemented 33 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 422 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 15 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 104 warnings
-    Info: Peak virtual memory: 452 megabytes
-    Info: Processing ended: Wed May  4 15:53:09 2022
+    Info (21061): Implemented 404 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 87 warnings
+    Info: Peak virtual memory: 444 megabytes
+    Info: Processing ended: Thu May  5 19:46:58 2022
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Total CPU time (on all processors): 00:00:14
 
 

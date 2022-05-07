@@ -1,25 +1,29 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
 
-entity ROM128 is port(
-	address: in std_logic_vector(15 downto 0);
-	data: out std_logic_vector(15 downto 0));
-end entity ROM128;
+ENTITY ROM128 IS PORT (
+	address : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END ENTITY ROM128;
 
-architecture ROM of ROM128 is
-	subtype word is std_logic_vector(7 downto 0);
-	type rom_mem is array(0 to 2**8 - 1) of word;
-	signal rom_data: rom_mem := (
+ARCHITECTURE ROM OF ROM128 IS
+	SUBTYPE word IS STD_LOGIC_VECTOR(7 DOWNTO 0);
+	TYPE rom_mem IS ARRAY(0 TO 2 ** 8 - 1) OF word;
+	SIGNAL rom_data : rom_mem := (
 		"00000001", "00110000",
-		others => x"00"
+		"00000001", "00110010",
+		"01010000", "00010000",
+		"01111111", "00000000",
+		"11111111", "10110001",
+		OTHERS => x"00"
 	);
-begin
-	rom_process: process(address, rom_data)
-		variable rom_address : natural range 0 to 2**7 - 1;
-	begin
-		rom_address := to_integer(unsigned(address(6 downto 0)));
-		data(15 downto 8) <= rom_data(2*rom_address+1);
-		data(7 downto 0) <= rom_data(2*rom_address);
-	end process;
-end architecture ROM;
+BEGIN
+	rom_process : PROCESS (address, rom_data)
+		VARIABLE rom_address : NATURAL RANGE 0 TO 2 ** 7 - 1;
+	BEGIN
+		rom_address := to_integer(unsigned(address(6 DOWNTO 0)));
+		data(15 DOWNTO 8) <= rom_data(2 * rom_address + 1);
+		data(7 DOWNTO 0) <= rom_data(2 * rom_address);
+	END PROCESS;
+END ARCHITECTURE ROM;

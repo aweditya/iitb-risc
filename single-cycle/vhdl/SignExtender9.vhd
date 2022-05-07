@@ -1,13 +1,13 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity SignExtender9Bit is port(
-	data_in: in std_logic_vector(8 downto 0); 
-	data_out: out std_logic_vector(15 downto 0));
-end entity SignExtender9Bit;
+ENTITY SignExtender9Bit IS PORT (
+	data_in : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+	data_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END ENTITY SignExtender9Bit;
 
-architecture extend6Bits of SignExtender9Bit is
-begin
+ARCHITECTURE extend6Bits OF SignExtender9Bit IS
+BEGIN
 	data_out(15) <= data_in(8);
 	data_out(14) <= data_in(8);
 	data_out(13) <= data_in(8);
@@ -15,5 +15,5 @@ begin
 	data_out(11) <= data_in(8);
 	data_out(10) <= data_in(8);
 	data_out(9) <= data_in(8);
-	data_out(8 downto 0) <= data_in;
-end architecture extend6Bits;
+	data_out(8 DOWNTO 0) <= data_in;
+END ARCHITECTURE extend6Bits;

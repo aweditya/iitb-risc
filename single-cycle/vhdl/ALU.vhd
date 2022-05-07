@@ -1,102 +1,102 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
 
-entity ALU is
-	generic(
-                operand_width: integer := 16;
-                control_bits: integer := 2);
-	port(
-                A: in std_logic_vector(operand_width-1 downto 0);
-                B: in std_logic_vector(operand_width-1 downto 0);
-                control_in: in std_logic_vector(control_bits-1 downto 0);
-                C: out std_logic_vector(operand_width-1 downto 0);
-                control_out: out std_logic_vector(control_bits-1 downto 0));
-end entity ALU;
+ENTITY ALU IS
+        GENERIC (
+                operand_width : INTEGER := 16;
+                control_bits : INTEGER := 2);
+        PORT (
+                A : IN STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0);
+                B : IN STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0);
+                control_in : IN STD_LOGIC_VECTOR(control_bits - 1 DOWNTO 0);
+                C : OUT STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0);
+                control_out : OUT STD_LOGIC_VECTOR(control_bits - 1 DOWNTO 0));
+END ENTITY ALU;
 
-architecture behavioural of ALU is
+ARCHITECTURE behavioural OF ALU IS
         -- Set zero flag
-        function set_zero(C: std_logic_vector(operand_width-1 downto 0)) return std_logic is
-                variable j: integer;
-                variable zero_check: std_logic := '0';
-        begin
-                zero_flag_calc: for j in 0 to operand_width-1 loop
-                        zero_check := zero_check or C(j);
-                end loop;
+        FUNCTION set_zero(C : STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0)) RETURN STD_LOGIC IS
+                VARIABLE j : INTEGER;
+                VARIABLE zero_check : STD_LOGIC := '0';
+        BEGIN
+                zero_flag_calc : FOR j IN 0 TO operand_width - 1 LOOP
+                        zero_check := zero_check OR C(j);
+                END LOOP;
 
-                zero_check := not zero_check;
-                return zero_check;
-        end set_zero;
-			
+                zero_check := NOT zero_check;
+                RETURN zero_check;
+        END set_zero;
+
         -- ADD
-        function add(A: in std_logic_vector(operand_width-1 downto 0); B: in std_logic_vector(operand_width-1 downto 0)) return std_logic_vector is
-	        variable sum: std_logic_vector(operand_width downto 0) := (others => '0');
-		variable carry: std_logic := '0';
-		variable i: integer;
-        begin
-		bitsum: for i in 0 to operand_width-1 loop
-                        sum(i) := (A(i) xor B(i)) xor carry;
-			carry := (A(i) and B(i)) or (carry and (A(i) or B(i)));
-		end loop;
+        FUNCTION add(A : IN STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0); B : IN STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0)) RETURN STD_LOGIC_VECTOR IS
+                VARIABLE sum : STD_LOGIC_VECTOR(operand_width DOWNTO 0) := (OTHERS => '0');
+                VARIABLE carry : STD_LOGIC := '0';
+                VARIABLE i : INTEGER;
+        BEGIN
+                bitsum : FOR i IN 0 TO operand_width - 1 LOOP
+                        sum(i) := (A(i) XOR B(i)) XOR carry;
+                        carry := (A(i) AND B(i)) OR (carry AND (A(i) OR B(i)));
+                END LOOP;
 
                 sum(operand_width) := carry;
-                return sum;
-        end add;
-        
+                RETURN sum;
+        END add;
+
         -- NAND
-	function nand_alu(A: in std_logic_vector(operand_width-1 downto 0); B: in std_logic_vector(operand_width-1 downto 0)) return std_logic_vector is
-	        variable result: std_logic_vector(operand_width-1 downto 0) := (others => '0');
-		variable i: integer;
-        begin
-		bitnand: for i in 0 to operand_width-1 loop
-			result(i) := (A(i) nand B(i));
-		end loop;
+        FUNCTION nand_alu(A : IN STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0); B : IN STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0)) RETURN STD_LOGIC_VECTOR IS
+                VARIABLE result : STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0) := (OTHERS => '0');
+                VARIABLE i : INTEGER;
+        BEGIN
+                bitnand : FOR i IN 0 TO operand_width - 1 LOOP
+                        result(i) := (A(i) NAND B(i));
+                END LOOP;
 
-                return result;
-        end nand_alu;
-        
+                RETURN result;
+        END nand_alu;
+
         -- XOR
-        function xor_alu(A: in std_logic_vector(operand_width-1 downto 0); B: in std_logic_vector(operand_width-1 downto 0))
-        return std_logic_vector is
-	        variable result: std_logic_vector(operand_width-1 downto 0) := (others => '0');
-		variable i: integer;
-        begin
-		bitxor: for i in 0 to operand_width-1 loop
-			result(i) := (A(i) xor B(i));
-		end loop;
-            return result;
-        end xor_alu;
+        FUNCTION xor_alu(A : IN STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0); B : IN STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0))
+                RETURN STD_LOGIC_VECTOR IS
+                VARIABLE result : STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0) := (OTHERS => '0');
+                VARIABLE i : INTEGER;
+        BEGIN
+                bitxor : FOR i IN 0 TO operand_width - 1 LOOP
+                        result(i) := (A(i) XOR B(i));
+                END LOOP;
+                RETURN result;
+        END xor_alu;
 
-begin
-        alu: process(A, B, control_in)
-                variable temp_op: std_logic_vector(operand_width downto 0) := (others => '0');
-                variable temp_op_2: std_logic_vector(operand_width-1 downto 0) := (others => '0');
-        begin
-                if (control_in = "00") then
+BEGIN
+        alu : PROCESS (A, B, control_in)
+                VARIABLE temp_op : STD_LOGIC_VECTOR(operand_width DOWNTO 0) := (OTHERS => '0');
+                VARIABLE temp_op_2 : STD_LOGIC_VECTOR(operand_width - 1 DOWNTO 0) := (OTHERS => '0');
+        BEGIN
+                IF (control_in = "00") THEN
                         temp_op := add(A, B);
-                        temp_op_2 := temp_op(operand_width-1 downto 0);
-			C <= temp_op_2;
+                        temp_op_2 := temp_op(operand_width - 1 DOWNTO 0);
+                        C <= temp_op_2;
                         control_out(0) <= temp_op(operand_width);
                         control_out(1) <= set_zero(temp_op_2);
 
-                elsif (control_in  = "01") then
-                        temp_op_2 := nand_alu(A,B);
+                ELSIF (control_in = "01") THEN
+                        temp_op_2 := nand_alu(A, B);
                         C <= temp_op_2;
                         control_out(0) <= '0';
                         control_out(1) <= set_zero(temp_op_2);
 
-                elsif (control_in  = "10") then
-                        temp_op_2 := xor_alu(A,B);
+                ELSIF (control_in = "10") THEN
+                        temp_op_2 := xor_alu(A, B);
                         C <= temp_op_2;
                         control_out(0) <= '0';
                         control_out(1) <= set_zero(temp_op_2);
 
-                elsif (control_in  = "11") then
+                ELSIF (control_in = "11") THEN
                         temp_op_2 := A; --none
                         C <= A;
                         control_out(0) <= '0';
                         control_out(1) <= set_zero(temp_op_2);
-                        
-                end if;
-        end process alu; 
-end behavioural;
+
+                END IF;
+        END PROCESS alu;
+END behavioural;

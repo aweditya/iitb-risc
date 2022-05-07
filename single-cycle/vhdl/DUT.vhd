@@ -1,25 +1,25 @@
-library ieee;
-use ieee.std_logic_1164.all;
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
 
-entity DUT is port(
-   input_vector: in std_logic_vector(1 downto 0);
-   output_vector: out std_logic_vector(15 downto 0)
+ENTITY DUT IS PORT (
+   input_vector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+   output_vector : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 );
-end entity;
+END ENTITY;
 
-architecture DutWrap of DUT is
-   component SingleCycleDatapath is port(
-      clock: in std_logic;
-      reset: in std_logic;
-      test_out: out std_logic_vector(15 downto 0)
-);
-end component SingleCycleDatapath;
+ARCHITECTURE DutWrap OF DUT IS
+   COMPONENT SingleCycleDatapath IS PORT (
+      clock : IN STD_LOGIC;
+      reset : IN STD_LOGIC;
+      test_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+      );
+   END COMPONENT SingleCycleDatapath;
 
-begin
-   add_instance: SingleCycleDatapath
-   port map(
+BEGIN
+   add_instance : SingleCycleDatapath
+   PORT MAP(
       clock => input_vector(1),
       reset => input_vector(0),
       test_out => output_vector
    );
-end DutWrap;
+END DutWrap;
