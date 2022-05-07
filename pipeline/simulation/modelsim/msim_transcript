@@ -1,0 +1,443 @@
+# do DUT_run_msim_rtl_vhdl.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /home/aditya/tools/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ForwardingUnit.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ForwardingUnit.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ForwardingUnit
+# -- Compiling architecture forward of ForwardingUnit
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/IF_ID_reg.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/IF_ID_reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity IF_ID_reg
+# -- Compiling architecture behaviour of IF_ID_reg
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/OR_EX_reg.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/OR_EX_reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity OR_EX_reg
+# -- Compiling architecture behaviour of OR_EX_reg
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/EX_MEM_reg.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/EX_MEM_reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity EX_MEM_reg
+# -- Compiling architecture behaviour of EX_MEM_reg
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ID_OR_reg.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ID_OR_reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ID_OR_reg
+# -- Compiling architecture behaviour of ID_OR_reg
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Pipeline.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Pipeline.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity PipelinedDatapath
+# -- Compiling architecture run of PipelinedDatapath
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/MEM_WB_reg.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/MEM_WB_reg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity MEM_WB_reg
+# -- Compiling architecture behaviour of MEM_WB_reg
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Multiplexer16bit4to1.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Multiplexer16bit4to1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Multiplexer16bit4to1
+# -- Compiling architecture mux4to1_select of Multiplexer16bit4to1
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/RAM.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/RAM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity RAM
+# -- Compiling architecture behaviour of RAM
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/BitShifter.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/BitShifter.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity BitShifter
+# -- Compiling architecture shift of BitShifter
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/RegisterBank.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/RegisterBank.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity RegisterBank
+# -- Compiling architecture behaviour of RegisterBank
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/DUT.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/DUT.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity DUT
+# -- Compiling architecture DutWrap of DUT
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/SignExtender9.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/SignExtender9.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SignExtender9Bit
+# -- Compiling architecture extend6Bits of SignExtender9Bit
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Multiplexer3bit4to1.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Multiplexer3bit4to1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Multiplexer3bit4to1
+# -- Compiling architecture mux4to1_select of Multiplexer3bit4to1
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/SignExtender6.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/SignExtender6.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity SignExtender6Bit
+# -- Compiling architecture extend9Bits of SignExtender6Bit
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Multiplexer3bit2to1.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Multiplexer3bit2to1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Multiplexer3bit2to1
+# -- Compiling architecture mux2to1_select of Multiplexer3bit2to1
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ROM.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ROM.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ROM128
+# -- Compiling architecture ROM of ROM128
+# End time: 10:29:47 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ALU.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:47 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ALU.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ALU
+# -- Compiling architecture behavioural of ALU
+# End time: 10:29:48 on May 07,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/FlagRegister.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:48 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/FlagRegister.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity FlagRegister
+# -- Compiling architecture behaviour of FlagRegister
+# End time: 10:29:48 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ZeroAppender.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:48 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/ZeroAppender.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity ZeroAppender
+# -- Compiling architecture append of ZeroAppender
+# End time: 10:29:48 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Multiplexer16bit2to1.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:48 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Multiplexer16bit2to1.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Multiplexer16bit2to1
+# -- Compiling architecture mux2to1_select of Multiplexer16bit2to1
+# End time: 10:29:48 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vcom -93 -work work {/home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Testbench.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 10:29:48 on May 07,2022
+# vcom -reportprogress 300 -93 -work work /home/aditya/Projects/iitb/ee309/project-2/pipeline/vhdl/Testbench.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Testbench
+# -- Compiling architecture Behave of Testbench
+# End time: 10:29:48 on May 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  Testbench
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs=""+acc"" Testbench 
+# Start time: 10:29:48 on May 07,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.testbench(behave)
+# Loading work.dut(dutwrap)
+# Loading work.pipelineddatapath(run)
+# Loading ieee.numeric_std(body)
+# Loading work.rom128(rom)
+# Loading work.multiplexer3bit2to1(mux2to1_select)
+# Loading work.multiplexer3bit4to1(mux4to1_select)
+# Loading work.multiplexer16bit4to1(mux4to1_select)
+# Loading work.registerbank(behaviour)
+# Loading work.forwardingunit(forward)
+# Loading work.alu(behavioural)
+# Loading work.flagregister(behaviour)
+# Loading work.ram(behaviour)
+# Loading work.bitshifter(shift)
+# Loading work.zeroappender(append)
+# Loading work.signextender6bit(extend9bits)
+# Loading work.signextender9bit(extend6bits)
+# Loading work.multiplexer16bit2to1(mux2to1_select)
+# Loading work.if_id_reg(behaviour)
+# Loading work.id_or_reg(behaviour)
+# Loading work.or_ex_reg(behaviour)
+# Loading work.ex_mem_reg(behaviour)
+# Loading work.mem_wb_reg(behaviour)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/dut_instance/add_instance/rom_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 44 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 44 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 44 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 44 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 3  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 3  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 3  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 88 ns  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 132 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 176 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 176 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 176 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 176 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 176 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 176 ns  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 220 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 220 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 264 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 264 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 264 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 264 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 264 ns  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 308 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 308 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 352 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 352 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 352 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 352 ns  Iteration: 4  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 396 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 396 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 440 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/rf
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 440 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 484 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 528 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 572 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 616 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 660 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 704 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 704 ns  Iteration: 2  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 748 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 792 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 836 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 880 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 924 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 968 ns  Iteration: 1  Instance: /testbench/dut_instance/add_instance/ram_unit
+# ** Note: SUCCESS, all tests passed.
+#    Time: 1452 ns  Iteration: 0  Instance: /testbench
+# End time: 10:31:39 on May 07,2022, Elapsed time: 0:01:51
+# Errors: 0, Warnings: 72

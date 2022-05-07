@@ -1,0 +1,35 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.numeric_std.ALL;
+
+ENTITY ROM128 IS PORT (
+	address : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+	data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
+END ENTITY ROM128;
+
+ARCHITECTURE ROM OF ROM128 IS
+	SUBTYPE word IS STD_LOGIC_VECTOR(7 DOWNTO 0);
+	TYPE rom_mem IS ARRAY(0 TO 2 ** 8 - 1) OF word;
+	SIGNAL rom_data : rom_mem := (
+		"00000000", "00110000", -- LHI R0, 000000000
+		"00000001", "00110010", -- LHI R1, 000000001
+		"00000010", "00110100", -- LHI R2, 000000010
+		"00000100", "00110110", -- LHI R3, 000000100
+		"00001000", "00111000", -- LHI R4, 000001000
+		"00010000", "00111010", -- LHI R5, 000010000
+		"00100000", "00111100", -- LHI R6, 000100000
+		"10010000", "00010100", -- ADD R2, R2, R2
+		"01001001", "00010010", -- ADZ R1, R1, R1
+		"10010000", "00010100", -- ADD R2, R2, R2
+		"01010000", "00010100", -- ADD R2, R1, R2
+		OTHERS => x"00"
+	);
+BEGIN
+	rom_process : PROCESS (address, rom_data)
+		VARIABLE rom_address : NATURAL RANGE 0 TO 2 ** 7 - 1;
+	BEGIN
+		rom_address := to_integer(unsigned(address(6 DOWNTO 0)));
+		data(15 DOWNTO 8) <= rom_data(2 * rom_address + 1);
+		data(7 DOWNTO 0) <= rom_data(2 * rom_address);
+	END PROCESS;
+END ARCHITECTURE ROM;

@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'input_vector[1]'
+Slack : -11.796
+TNS   : -1253.763
+
+Type  : Slow 1200mV 85C Model Setup 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : -4.780
+TNS   : -4.780
+
+Type  : Slow 1200mV 85C Model Hold 'input_vector[1]'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : 1.619
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.201
+TNS   : -417.396
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'input_vector[1]'
+Slack : -11.215
+TNS   : -1156.692
+
+Type  : Slow 1200mV 0C Model Setup 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : -4.340
+TNS   : -4.340
+
+Type  : Slow 1200mV 0C Model Hold 'input_vector[1]'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : 1.399
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.201
+TNS   : -417.396
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : 0.254
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'input_vector[1]'
+Slack : -4.372
+TNS   : -376.431
+
+Type  : Fast 1200mV 0C Model Setup 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : -2.312
+TNS   : -2.312
+
+Type  : Fast 1200mV 0C Model Hold 'input_vector[1]'
+Slack : 0.170
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : 1.462
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'input_vector[1]'
+Slack : -3.000
+TNS   : -297.129
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PipelinedDatapath:add_instance|ID_OR_reg:id_or_register|altshift_taps:rf_load_OR_rtl_0|shift_taps_86m:auto_generated|altsyncram_rk31:altsyncram4|ram_block5a0'
+Slack : 0.366
+TNS   : 0.000
+
+------------------------------------------------------------
