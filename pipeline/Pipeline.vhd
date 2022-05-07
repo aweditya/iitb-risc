@@ -265,14 +265,17 @@ ARCHITECTURE run OF PipelinedDatapath IS
 	END COMPONENT Multiplexer16bit8to1;
 
 	COMPONENT ForwardingUnit IS PORT (
+		or_ex_rf_load : IN STD_LOGIC;
+		or_ex_rf_a3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+
 		ex_mem_rf_load : IN STD_LOGIC;
 		ex_mem_rf_a3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 		mem_wb_rf_load : IN STD_LOGIC;
 		mem_wb_rf_a3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
-		or_ex_rf_a1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-		or_ex_rf_a2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		id_or_rf_a1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+		id_or_rf_a2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 		forward_select_a : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
 		forward_select_b : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
@@ -324,8 +327,6 @@ ARCHITECTURE run OF PipelinedDatapath IS
 	SIGNAL pc_final_select_IF : STD_LOGIC_VECTOR(1 DOWNTO 0);
 
 	-- ALU signals
-	SIGNAL alu_a_final : STD_LOGIC_VECTOR(15 downto 0);
-	SIGNAL forwarded_b : STD_LOGIC_VECTOR(15 downto 0);
 	SIGNAL alu_b_select_ID_out, alu_b_select_OR, alu_b_select_EX_in : STD_LOGIC_VECTOR(1 DOWNTO 0);
 	SIGNAL alu_b_EX : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL alu_c_EX_out, alu_c_MEM, alu_C_WB_in : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -347,7 +348,7 @@ ARCHITECTURE run OF PipelinedDatapath IS
 	SIGNAL shift_out_EX : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 	-- Zero appender signals
-	SIGNAL za_out_ID_out, za_out_OR, za_out_EX, za_out_MEM, za_out_WB_in : STD_LOGIC_VECTOR(15 DOWNTO 0); 
+	SIGNAL za_out_ID_out, za_out_OR, za_out_EX, za_out_MEM, za_out_WB_in : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 	-- Sign extender 6-bit signals
 	SIGNAL se6_out_ID_out, se6_out_OR, se6_out_EX_in : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -356,7 +357,8 @@ ARCHITECTURE run OF PipelinedDatapath IS
 	SIGNAL se9_out_ID_out, se9_out_OR, se9_out_EX_in : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 	-- Forwarding signals
-	SIGNAL forward_select_a, forward_select_b : STD_LOGIC_VECTOR(1 downto 0);
+	SIGNAL forwarded_rf_d1, forwarded_rf_d2 : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	SIGNAL forward_select_a, forward_select_b : STD_LOGIC_VECTOR(1 DOWNTO 0);
 
 BEGIN
 	async_process : PROCESS (instruction_IF_out, instruction_ID_in, cc_out_EX, flags_EX, reset)
@@ -706,9 +708,9 @@ BEGIN
 				c_load_ID_out <= '0';
 		END CASE;
 	END PROCESS;
-
+	
 	test_out <= rf_d3_WB_out;
-	-- test_out(15) <= rf_load_WB_in;
+	-- test_out(11) <= rf_load_WB_in;
 	-- test_out(14 downto 0) <= rf_d3_WB_out(14 downto 0);
 	-- test_out <= pc_output_IF_out;
 
@@ -747,7 +749,7 @@ BEGIN
 
 	rf : RegisterBank PORT MAP(
 		clock => clock,
-		load => rf_load_ID_out,
+		load => rf_load_WB_in,
 		reset => reset,
 		address_in => rf_a3_WB_in,
 		data_in => rf_d3_WB_out,
@@ -758,37 +760,40 @@ BEGIN
 		pc_in => pc_input_IF,
 		pc_out => pc_output_IF_out);
 
+	rf_d1_forwarding_mux : Multiplexer16bit4to1 PORT MAP(
+		in0 => rf_d1_OR_out,
+		in1 => alu_c_EX_out,
+		in2 => alu_c_MEM,
+		in3 => rf_d3_WB_out,
+		sel => forward_select_a,
+		sel_out => forwarded_rf_d1);
+
+	rf_d2_forwarding_mux : Multiplexer16bit4to1 PORT MAP(
+		in0 => rf_d2_OR_out,
+		in1 => alu_c_EX_out,
+		in2 => alu_c_MEM,
+		in3 => rf_d3_WB_out,
+		sel => forward_select_b,
+		sel_out => forwarded_rf_d2);
+
 	forwarding_unit : ForwardingUnit PORT MAP(
+		or_ex_rf_load => rf_load_EX,
+		or_ex_rf_a3 => rf_a3_EX,
+
 		ex_mem_rf_load => rf_load_MEM,
 		ex_mem_rf_a3 => rf_a3_MEM,
 
 		mem_wb_rf_load => rf_load_WB_in,
 		mem_wb_rf_a3 => rf_a3_WB_in,
 
-		or_ex_rf_a1 => rf_a1_EX_in,
-		or_ex_rf_a2 => rf_a2_EX_in,
+		id_or_rf_a1 => rf_a1_OR_in,
+		id_or_rf_a2 => rf_a2_OR_in,
 
 		forward_select_a => forward_select_a,
 		forward_select_b => forward_select_b);
 
-	alu_a_forwarding_mux : Multiplexer16bit4to1 PORT MAP(
-		in0 => rf_d1_EX_in,
-		in1 => alu_c_MEM,
-		in2 => rf_d3_WB_out,
-		in3 => rf_d1_EX_in,
-		sel => forward_select_a,
-		sel_out => alu_a_final);
-
-	alu_b_forwarding_mux : Multiplexer16bit4to1 PORT MAP(
-		in0 => rf_d2_EX,
-		in1 => alu_c_MEM,
-		in2 => rf_d3_WB_out,
-		in3 => rf_d2_EX,
-		sel => forward_select_b,
-		sel_out => forwarded_b);
-
 	alu_b_mux : Multiplexer16bit4to1 PORT MAP(
-		in0 => forwarded_b,
+		in0 => rf_d2_EX,
 		in1 => shift_out_EX,
 		in2 => se6_out_EX_in,
 		in3 => se9_out_EX_in,
@@ -797,7 +802,7 @@ BEGIN
 
 	-- ALU A comes from the forwarding multiplexer for A
 	main_alu : ALU PORT MAP(
-		A => alu_a_final,
+		A => rf_d1_EX_in,
 		B => alu_b_EX,
 		control_in => alu_select_EX_in,
 		C => alu_c_EX_out,
@@ -822,7 +827,7 @@ BEGIN
 
 	-- shift_in <= rf_d2;
 	shifter : BitShifter PORT MAP(
-		data_in => forwarded_b,
+		data_in => rf_d2_EX,
 		data_out => shift_out_EX);
 
 	-- za_in <= instruction_ID_in(8 downto 0);
@@ -944,8 +949,8 @@ BEGIN
 		za_out_OR => za_out_OR,
 		rf_a2_OR_out => rf_a2_OR_in,
 		rf_a1_OR_out => rf_a1_OR_in,
-		rf_d2_OR_out => rf_d2_OR_out,
-		rf_d1_OR_out => rf_d1_OR_out,
+		rf_d2_OR_out => forwarded_rf_d2,
+		rf_d1_OR_out => forwarded_rf_d1,
 		instruction_OR_out => instruction_OR_in,
 
 		pc_plus_1_EX => pc_plus_1_EX,
