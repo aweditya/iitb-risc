@@ -264,21 +264,46 @@ ARCHITECTURE run OF PipelinedDatapath IS
 		);
 	END COMPONENT Multiplexer16bit8to1;
 
+	COMPONENT Multiplexer16bit16to1 IS PORT (
+		in0 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in1 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in2 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in3 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in4 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in5 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in6 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in7 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in8 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in9 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in10 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in11 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in12 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in13 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in14 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		in15 : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		sel : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		sel_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+		);
+	END COMPONENT Multiplexer16bit16to1;
+
 	COMPONENT ForwardingUnit IS PORT (
 		or_ex_rf_load : IN STD_LOGIC;
+		or_ex_opcode : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		or_ex_rf_a3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 		ex_mem_rf_load : IN STD_LOGIC;
+		ex_mem_opcode : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		ex_mem_rf_a3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 		mem_wb_rf_load : IN STD_LOGIC;
+		mem_wb_opcode : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		mem_wb_rf_a3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
 		id_or_rf_a1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		id_or_rf_a2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
-		forward_select_a : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-		forward_select_b : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+		forward_select_a : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		forward_select_b : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 		);
 	END COMPONENT ForwardingUnit;
 
@@ -358,7 +383,7 @@ ARCHITECTURE run OF PipelinedDatapath IS
 
 	-- Forwarding signals
 	SIGNAL forwarded_rf_d1, forwarded_rf_d2 : STD_LOGIC_VECTOR(15 DOWNTO 0);
-	SIGNAL forward_select_a, forward_select_b : STD_LOGIC_VECTOR(1 DOWNTO 0);
+	SIGNAL forward_select_a, forward_select_b : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 BEGIN
 	async_process : PROCESS (instruction_IF_out, instruction_ID_in, cc_out_EX, flags_EX, reset)
@@ -708,7 +733,7 @@ BEGIN
 				c_load_ID_out <= '0';
 		END CASE;
 	END PROCESS;
-	
+
 	test_out <= rf_d3_WB_out;
 	-- test_out(11) <= rf_load_WB_in;
 	-- test_out(14 downto 0) <= rf_d3_WB_out(14 downto 0);
@@ -760,30 +785,57 @@ BEGIN
 		pc_in => pc_input_IF,
 		pc_out => pc_output_IF_out);
 
-	rf_d1_forwarding_mux : Multiplexer16bit4to1 PORT MAP(
+	rf_d1_forwarding_mux : Multiplexer16bit16to1 PORT MAP(
 		in0 => rf_d1_OR_out,
-		in1 => alu_c_EX_out,
-		in2 => alu_c_MEM,
-		in3 => rf_d3_WB_out,
+		in1 => za_out_EX,
+		in2 => alu_c_EX_out,
+		in3 => pc_plus_1_EX,
+		in4 => za_out_MEM,
+		in5 => alu_c_MEM,
+		in6 => pc_plus_1_MEM,
+		in7 => ram_d_out_MEM_out,
+		in8 => rf_d3_WB_out,
+		in9 => rf_d1_OR_out,
+		in10 => rf_d1_OR_out,
+		in11 => rf_d1_OR_out,
+		in12 => rf_d1_OR_out,
+		in13 => rf_d1_OR_out,
+		in14 => rf_d1_OR_out,
+		in15 => rf_d1_OR_out,
 		sel => forward_select_a,
 		sel_out => forwarded_rf_d1);
 
-	rf_d2_forwarding_mux : Multiplexer16bit4to1 PORT MAP(
+	rf_d2_forwarding_mux : Multiplexer16bit16to1 PORT MAP(
 		in0 => rf_d2_OR_out,
-		in1 => alu_c_EX_out,
-		in2 => alu_c_MEM,
-		in3 => rf_d3_WB_out,
+		in1 => za_out_EX,
+		in2 => alu_c_EX_out,
+		in3 => pc_plus_1_EX,
+		in4 => za_out_MEM,
+		in5 => alu_c_MEM,
+		in6 => pc_plus_1_MEM,
+		in7 => ram_d_out_MEM_out,
+		in8 => rf_d3_WB_out,
+		in9 => rf_d2_OR_out,
+		in10 => rf_d2_OR_out,
+		in11 => rf_d2_OR_out,
+		in12 => rf_d2_OR_out,
+		in13 => rf_d2_OR_out,
+		in14 => rf_d2_OR_out,
+		in15 => rf_d2_OR_out,
 		sel => forward_select_b,
 		sel_out => forwarded_rf_d2);
 
 	forwarding_unit : ForwardingUnit PORT MAP(
 		or_ex_rf_load => rf_load_EX,
+		or_ex_opcode => instruction_EX_in(15 DOWNTO 12),
 		or_ex_rf_a3 => rf_a3_EX,
 
 		ex_mem_rf_load => rf_load_MEM,
+		ex_mem_opcode => instruction_MEM_in(15 DOWNTO 12),
 		ex_mem_rf_a3 => rf_a3_MEM,
 
 		mem_wb_rf_load => rf_load_WB_in,
+		mem_wb_opcode => instruction_WB_in(15 DOWNTO 12),
 		mem_wb_rf_a3 => rf_a3_WB_in,
 
 		id_or_rf_a1 => rf_a1_OR_in,
