@@ -15,6 +15,8 @@ ARCHITECTURE behaviour OF RAM IS
 	SUBTYPE word IS STD_LOGIC_VECTOR(7 DOWNTO 0); -- Define size of each RAM cell
 	TYPE memory IS ARRAY(0 TO 2 ** 8 - 1) OF word; -- Define size of memory (PC is 16-bit so 2**16 addresses but 2**17 memory cells)
 	SIGNAL RAM128 : memory := (
+		"00000001", "00000000",
+		"00000010", "00000000",
 		OTHERS => x"00"
 	);
 

@@ -3,6 +3,7 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY ID_OR_reg IS PORT (
 	clock : IN STD_LOGIC;
+	load : IN STD_LOGIC;
 
 	pc_plus_1_ID : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 	pc_output_ID : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -46,23 +47,25 @@ BEGIN
 	register_process : PROCESS (clock)
 	BEGIN
 		IF (falling_edge(clock)) THEN
-			pc_plus_1_OR <= pc_plus_1_ID;
-			pc_output_OR <= pc_output_ID;
-			rf_d3_select_OR <= rf_d3_select_ID_out;
-			alu_b_select_OR <= alu_b_select_ID_out;
-			imm_select_OR <= imm_select_ID_out;
-			alu_select_OR <= alu_select_ID_out;
-			rf_load_OR <= rf_load_ID_out;
-			ram_load_OR <= ram_load_ID_out;
-			z_load_OR <= z_load_ID_out;
-			c_load_OR <= c_load_ID_out;
-			rf_a3_OR <= rf_a3_ID_out;
-			se6_out_OR <= se6_out_ID_out;
-			se9_out_OR <= se9_out_ID_out;
-			za_out_OR <= za_out_ID_out;
-			rf_a2_OR_in <= rf_a2_ID_out;
-			rf_a1_OR_in <= rf_a1_ID_out;
-			instruction_OR_in <= instruction_ID_out;
+			if (load = '1') THEN
+				pc_plus_1_OR <= pc_plus_1_ID;
+				pc_output_OR <= pc_output_ID;
+				rf_d3_select_OR <= rf_d3_select_ID_out;
+				alu_b_select_OR <= alu_b_select_ID_out;
+				imm_select_OR <= imm_select_ID_out;
+				alu_select_OR <= alu_select_ID_out;
+				rf_load_OR <= rf_load_ID_out;
+				ram_load_OR <= ram_load_ID_out;
+				z_load_OR <= z_load_ID_out;
+				c_load_OR <= c_load_ID_out;
+				rf_a3_OR <= rf_a3_ID_out;
+				se6_out_OR <= se6_out_ID_out;
+				se9_out_OR <= se9_out_ID_out;
+				za_out_OR <= za_out_ID_out;
+				rf_a2_OR_in <= rf_a2_ID_out;
+				rf_a1_OR_in <= rf_a1_ID_out;
+				instruction_OR_in <= instruction_ID_out;
+			END IF;
 		END IF;
 	END PROCESS;
 END behaviour;

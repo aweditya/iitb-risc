@@ -11,6 +11,7 @@ ARCHITECTURE run OF PipelinedDatapath IS
 	-- Pipeline registers
 	COMPONENT IF_ID_reg IS PORT (
 		clock : IN STD_LOGIC;
+		load : IN STD_LOGIC;
 
 		pc_plus_1_IF_out : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		pc_output_IF_out : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -23,6 +24,7 @@ ARCHITECTURE run OF PipelinedDatapath IS
 
 	COMPONENT ID_OR_reg IS PORT (
 		clock : IN STD_LOGIC;
+		load : IN STD_LOGIC;
 
 		pc_plus_1_ID : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 		pc_output_ID : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -182,6 +184,7 @@ ARCHITECTURE run OF PipelinedDatapath IS
 		address_out_2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		data_out_2 : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		pc_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+		pc_load : IN STD_LOGIC;
 		pc_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 	END COMPONENT RegisterBank;
 
@@ -217,6 +220,13 @@ ARCHITECTURE run OF PipelinedDatapath IS
 		data_in : IN STD_LOGIC_VECTOR(8 DOWNTO 0);
 		data_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
 	END COMPONENT SignExtender9Bit;
+
+	COMPONENT Multiplexer1bit2to1 IS PORT (
+		in0 : IN STD_LOGIC;
+		in1 : IN STD_LOGIC;
+		sel : IN STD_LOGIC;
+		sel_out : OUT STD_LOGIC);
+	END COMPONENT Multiplexer1bit2to1;
 
 	COMPONENT Multiplexer3bit2to1 IS PORT (
 		in0 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -307,6 +317,17 @@ ARCHITECTURE run OF PipelinedDatapath IS
 		);
 	END COMPONENT ForwardingUnit;
 
+	COMPONENT HazardDetectionUnit IS PORT (
+	        or_ex_opcode : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        	or_ex_rf_a3 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+
+	        id_or_rf_a1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        	id_or_rf_a2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+
+	        hazard_detected : OUT STD_LOGIC
+		);
+	end COMPONENT HazardDetectionUnit;
+
 	-- Instruction signals for different stages in the pipeline
 	SIGNAL instruction_IF_out, instruction_ID_in : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL instruction_ID_out, instruction_OR_in : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -384,6 +405,10 @@ ARCHITECTURE run OF PipelinedDatapath IS
 	-- Forwarding signals
 	SIGNAL forwarded_rf_d1, forwarded_rf_d2 : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	SIGNAL forward_select_a, forward_select_b : STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+	-- Hazard Detection signals
+	SIGNAL hazard_detected : STD_LOGIC;
+	SIGNAL final_rf_load_OR, final_ram_load_OR : STD_LOGIC;
 
 BEGIN
 	async_process : PROCESS (instruction_IF_out, instruction_ID_in, cc_out_EX, flags_EX, reset)
@@ -735,6 +760,7 @@ BEGIN
 	END PROCESS;
 
 	test_out <= rf_d3_WB_out;
+	-- test_out(15) <= hazard_detected;
 	-- test_out(11) <= rf_load_WB_in;
 	-- test_out(14 downto 0) <= rf_d3_WB_out(14 downto 0);
 	-- test_out <= pc_output_IF_out;
@@ -783,6 +809,7 @@ BEGIN
 		address_out_2 => rf_a2_OR_in,
 		data_out_2 => rf_d2_OR_out,
 		pc_in => pc_input_IF,
+		pc_load => hazard_detected,
 		pc_out => pc_output_IF_out);
 
 	rf_d1_forwarding_mux : Multiplexer16bit16to1 PORT MAP(
@@ -930,6 +957,7 @@ BEGIN
 	-- Pipeline registers
 	if_id_register : IF_ID_reg PORT MAP(
 		clock => clock,
+		load => hazard_detected,
 
 		pc_plus_1_IF_out => pc_plus_1_IF_out,
 		pc_output_IF_out => pc_output_IF_out,
@@ -941,6 +969,7 @@ BEGIN
 	-- instruction_ID_out <= instruction_ID_in
 	id_or_register : ID_OR_reg PORT MAP(
 		clock => clock,
+		load => hazard_detected,
 
 		pc_plus_1_ID => pc_plus_1_ID,
 		pc_output_ID => pc_output_ID,
@@ -979,11 +1008,33 @@ BEGIN
 		rf_a1_OR_in => rf_a1_OR_in,
 		instruction_OR_in => instruction_OR_in);
 
+	hazard_detection_unit : HazardDetectionUnit PORT MAP(
+		or_ex_opcode => instruction_EX_in(15 downto 12),
+		or_ex_rf_a3 => rf_a3_EX,
+
+		id_or_rf_a1 => rf_a1_OR_in,
+		id_or_rf_a2 => rf_a2_OR_in ,
+
+		hazard_detected => hazard_detected);
+
+	rf_load_hazard : Multiplexer1bit2to1 PORT MAP(
+		in0 => '0',
+		in1 => rf_load_OR,
+		sel => hazard_detected,
+		sel_out => final_rf_load_OR);
+
+	ram_load_hazard : Multiplexer1bit2to1 PORT MAP(
+                in0 => '0',
+                in1 => ram_load_OR,
+                sel => hazard_detected,
+                sel_out => final_ram_load_OR);
+
 	-- instruction_OR_out <= instruction_OR_in
 	-- rf_a2_OR_out <= rf_a2_OR_in
 	-- rf_a1_OR_out <= rf_a1_OR_in
 	or_ex_register : OR_EX_reg PORT MAP(
 		clock => clock,
+
 
 		pc_plus_1_OR => pc_plus_1_OR,
 		pc_output_OR => pc_output_OR,
@@ -991,8 +1042,8 @@ BEGIN
 		alu_b_select_OR => alu_b_select_OR,
 		imm_select_OR => imm_select_OR,
 		alu_select_OR => alu_select_OR,
-		rf_load_OR => rf_load_OR,
-		ram_load_OR => ram_load_OR,
+		rf_load_OR => final_rf_load_OR,
+		ram_load_OR => final_ram_load_OR,
 		z_load_OR => z_load_OR,
 		c_load_OR => c_load_OR,
 		rf_a3_OR => rf_a3_OR,
